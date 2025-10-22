@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutGuest.cshtml";
+}
+<div class="content-container">
+    <img src="~/images/Font-Shapes/4-sided_cookie.svg" class="shape shape1" />
+    <img src="~/images/Font-Shapes/Flower.svg" class="shape shape2" />
+    <img src="~/images/Font-Shapes/Square.svg" class="shape shape3" />
+    <img src="~/images/Font-Shapes/Square45.svg" class="shape shape4" />
+    <img src="~/images/Font-Shapes/Oval.svg" class="shape shape5" />
+    <img src="~/images/Font-Shapes/Pill.svg" class="shape shape6" />
+    <img src="~/images/Font-Shapes/12-sided_cookie.svg" class="shape shape7" />
+    <img src="~/images/Font-Shapes/Circle.svg" class="shape shape8" />
+
+
+    <div class="guest-content">
+        <div class="content-title-container">
+            <h1>Transform Your Photos</h1>
+            <h2>Like a Chameleon</h2>
+        </div>
+
+        <div class="button-import-container">
+
+            <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
+
+                <button class="import-btn" type="button" id="uploadBtn">
+                    <span class="material-symbols-outlined icon_image" style="font-size: 30px;">
+                        image
+                    </span>
+                    <span class="material-symbols-outlined icon_upload" style="font-size: 30px">
+                        upload
+                    </span>
+                    <span class="text-import_a">Import</span>
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+<script src="~/js/Home.js"></script>
+}

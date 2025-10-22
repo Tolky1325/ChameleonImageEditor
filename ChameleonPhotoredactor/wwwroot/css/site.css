@@ -1,0 +1,41 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFFEDA;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000FDC;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    a:hover {
+        color: #FFBA38; 
+    }
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+button {
+    background-color: #FFBA38;
+    color: #241A0A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
