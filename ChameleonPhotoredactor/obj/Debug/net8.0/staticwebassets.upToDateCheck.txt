@@ -1,3 +1,4 @@
+wwwroot\css\editor.css
 wwwroot\css\guest.css
 wwwroot\css\lederboard.css
 wwwroot\css\library.css
@@ -92,10 +93,10 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\1000034609-removebg-preview (1).png
 wwwroot\uploads\arrow_range_80dp_000000_FILL0_wght400_GRAD0_opsz48.png
 wwwroot\uploads\ChatGPT Image 3 серп. 2025 р., 23_40_43.png
 wwwroot\uploads\ChatGPT Image 4 серп. 2025 р., 00_06_54.png
 wwwroot\uploads\Gemini_Generated_Image_71xpdg71xpdg71xp.png
 wwwroot\uploads\icons8-country.gif
-wwwroot\css\editor.css
-wwwroot\uploads\1000034609-removebg-preview (1).png
+wwwroot\uploads\savedWallpaper.jpg

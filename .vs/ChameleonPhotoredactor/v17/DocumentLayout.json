@@ -1,82 +1,122 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\University\\ChameleonPhotoredactor\\",
+  "WorkspaceRootPath": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\editor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\editor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\editor\\baseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\editor\\baseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\models\\entities\\imageedits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\models\\entities\\imageedits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\controllers\\editor\\baseeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\controllers\\editor\\baseeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\models\\entities\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\models\\entities\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\shared\\_layoutbaseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutbaseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\models\\entities\\userstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\models\\entities\\userstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\guest.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\guest.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\shared\\_layoutregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\shared\\_layoutguest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutguest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\library.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\library.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\lederboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\lederboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\wwwroot\\css\\user.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\user.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\university\\chameleonphotoredactor\\chameleonphotoredactor\\views\\library\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\editor\\canvaspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\editor\\canvaspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\editor\\baseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\editor\\baseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\library\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\library\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\leaderboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\leaderboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\export\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\export\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\controllers\\editor\\baseeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\controllers\\editor\\baseeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\shared\\_layoutguest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutguest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\shared\\_layoutbaseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutbaseeditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\shared\\_layoutregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layoutregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\shared\\_navbareditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_navbareditor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\controllers\\account\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\controllers\\account\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\editor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\editor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\guest.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\guest.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\library.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\library.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\lederboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\lederboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|d:\\projects\\proj_vs\\chameleonimageeditor\\chameleonphotoredactor\\wwwroot\\css\\user.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EBAFDE51-7351-464F-9FD2-74371B3B6DBA}|ChameleonPhotoredactor\\ChameleonPhotoredactor.csproj|solutionrelative:chameleonphotoredactor\\wwwroot\\css\\user.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,254 +126,359 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_LayoutBaseEditor.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-21T21:52:40.637Z",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Models\\Entities\\User.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA9wBIAAACsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T16:33:33.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BaseEditor.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T17:50:53.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "guest.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAwEoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-15T21:46:54.11Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "editor.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-19T17:48:51.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_LayoutGuest.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-15T21:33:54.983Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "login.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\login.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\login.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\login.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\login.css",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAAAHAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-19T17:44:02.357Z",
+              "Title": "ImageEdits.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\ImageEdits.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Models\\Entities\\ImageEdits.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\ImageEdits.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Models\\Entities\\ImageEdits.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T16:33:00.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BaseEditor.cs",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Title": "Image.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\Image.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Models\\Entities\\Image.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\Image.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Models\\Entities\\Image.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T20:44:53.392Z",
+              "WhenOpened": "2025-10-24T16:18:33.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserStats.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\UserStats.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Models\\Entities\\UserStats.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Models\\Entities\\UserStats.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Models\\Entities\\UserStats.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T16:17:30.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_LayoutRegistration.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Title": "CanvasPartial.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Editor\\CanvasPartial.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Editor\\CanvasPartial.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Editor\\CanvasPartial.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Editor\\CanvasPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-21T19:52:39.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T13:24:39.479Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "site.js",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\js\\site.js",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\js\\site.js",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Leaderboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Leaderboard\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Leaderboard\\Index.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Leaderboard\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-21T22:08:07.16Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-23T13:23:31.289Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Export\\Index.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Export\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Export\\Index.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Export\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-19T22:12:44.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T13:23:24.088Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Home.js",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-21T20:32:50.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\site.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-15T20:47:05.914Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-23T13:16:25.062Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "library.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\library.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\library.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\library.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\library.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-21T19:56:02.083Z",
-              "EditorCaption": ""
+              "Title": "_LayoutGuest.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutGuest.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBJwBoAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T21:33:54.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaseEditor.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Controllers\\Editor\\BaseEditor.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T20:44:53.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BaseEditor.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Editor\\BaseEditor.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T17:50:53.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T19:53:03.498Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "profile.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-21T19:55:42.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "lederboard.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-21T19:56:00.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "user.css",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\user.css",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\user.css",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\wwwroot\\css\\user.css",
-              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\user.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-21T19:55:52.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T14:17:19.709Z",
-              "EditorCaption": ""
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T13:00:13.356Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Account\\Registration.cshtml",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "_NavbarEditor.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_NavbarEditor.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_NavbarEditor.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_NavbarEditor.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_NavbarEditor.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-21T19:53:03.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T12:45:49.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T19:52:48.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_LayoutRegistration.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutRegistration.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T19:52:39.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_LayoutBaseEditor.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_LayoutBaseEditor.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBJwCMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T21:52:40.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T14:17:19.709Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
-              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
-              "ToolTip": "D:\\University\\ChameleonPhotoredactor\\ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
-              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Library\\Index.cshtml",
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\Account\\Login.cs",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Controllers\\Account\\Login.cs",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Controllers\\Account\\Login.cs",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Controllers\\Account\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T12:32:57.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "editor.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\editor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-19T17:48:51.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "login.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\login.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\login.css",
+              "ViewState": "AgIAAEkAAAAAAAAAAIBJwHAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-19T17:44:02.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "guest.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\guest.css",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAwEoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-15T21:46:54.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ChameleonPhotoredactor\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-21T19:52:48.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T22:12:44.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Home.js",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\js\\Home.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-21T20:32:50.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-15T20:47:05.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "library.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\library.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\library.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\library.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\library.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T19:56:02.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "profile.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\profile.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T19:55:42.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "lederboard.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\lederboard.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T19:56:00.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "user.css",
+              "DocumentMoniker": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\user.css",
+              "RelativeDocumentMoniker": "ChameleonPhotoredactor\\wwwroot\\css\\user.css",
+              "ToolTip": "D:\\Projects\\Proj_VS\\ChameleonImageEditor\\ChameleonPhotoredactor\\wwwroot\\css\\user.css",
+              "RelativeToolTip": "ChameleonPhotoredactor\\wwwroot\\css\\user.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-21T19:55:52.802Z"
             }
           ]
         }
