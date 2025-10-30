@@ -15,6 +15,7 @@ D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\Cha
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.MvcApplicationPartsAssemblyInfo.cache
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.RazorAssemblyInfo.cache
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.RazorAssemblyInfo.cs
+D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.sourcelink.json
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\rjimswa.dswa.cache.json
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -29,4 +30,3 @@ D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ref
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.pdb
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.genruntimeconfig.cache
 D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ref\ChameleonPhotoredactor.dll
-D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\obj\Debug\net8.0\ChameleonPhotoredactor.sourcelink.json

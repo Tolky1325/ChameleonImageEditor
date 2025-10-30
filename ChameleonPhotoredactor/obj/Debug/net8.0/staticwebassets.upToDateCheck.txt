@@ -6,7 +6,6 @@ wwwroot\css\profile.css
 wwwroot\css\site.css
 wwwroot\css\user.css
 wwwroot\favicon.ico
-wwwroot\images\default-avatar.png
 wwwroot\images\Font-Shapes\12-sided_cookie.svg
 wwwroot\images\Font-Shapes\12-sided_cookie_Authorization.svg
 wwwroot\images\Font-Shapes\4-sided_cookie.svg
@@ -93,9 +92,13 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\uploads\arrow_range_80dp_000000_FILL0_wght400_GRAD0_opsz48.png
+wwwroot\uploads\ChatGPT Image 10 жовт. 2025 р., 22_01_38.png
 wwwroot\uploads\ChatGPT Image 3 серп. 2025 р., 23_40_43.png
 wwwroot\uploads\ChatGPT Image 4 серп. 2025 р., 00_06_54.png
 wwwroot\uploads\Gemini_Generated_Image_71xpdg71xpdg71xp.png
 wwwroot\uploads\icons8-country.gif
+wwwroot\uploads\IMG_20251025_194639_442.jpg
+wwwroot\uploads\Screenshot (1).png
+wwwroot\uploads\Screenshot 2024-09-25 200416.png
 wwwroot\css\editor.css
 wwwroot\uploads\1000034609-removebg-preview (1).png

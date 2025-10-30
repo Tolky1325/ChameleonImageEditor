@@ -15,7 +15,7 @@ footer {
 }
 
 .guest-nav {
-    position: fixed;
+    position: relative;
     width: 100px;
     display: flex;
     flex-direction: column;
@@ -84,10 +84,9 @@ footer {
     align-items: center;
     position: relative;
     overflow: hidden;
-    margin-left: 100px;
 }
 
-.content-container {
+    .content-container {
     display: flex;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 28px;
