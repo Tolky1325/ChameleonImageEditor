@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ChameleonPhotoredactor
 build_property.RootNamespace = ChameleonPhotoredactor
-build_property.ProjectDir = D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor\
+build_property.ProjectDir = D:\Projects\Proj_VS\tempproj\ChameleonPhotoredactor\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\University\ChameleonPhotoredactor\ChameleonPhotoredactor
+build_property.MSBuildProjectDirectory = D:\Projects\Proj_VS\tempproj\ChameleonPhotoredactor
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Account/Login.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Account/Registration.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Account/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Editor/BaseEditor.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Editor/BaseEditor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yXEJhc2VFZGl0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Editor/CanvasPartial.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Editor/CanvasPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yXENhbnZhc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Export/Index.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Export/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwb3J0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Home/Index.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Leaderboard/Index.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Leaderboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhZGVyYm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Library/Index.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Library/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/Error.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/_Layout.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/_LayoutBaseEditor.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/_LayoutBaseEditor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRCYXNlRWRpdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/_LayoutGuest.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/_LayoutGuest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRHdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/_LayoutRegistration.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/_LayoutRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRSZWdpc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/User/EditProfile.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/User/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/User/Profile.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/_ViewImports.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/ChameleonPhotoredactor/ChameleonPhotoredactor/Views/_ViewStart.cshtml]
+[D:/Projects/Proj_VS/tempproj/ChameleonPhotoredactor/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
