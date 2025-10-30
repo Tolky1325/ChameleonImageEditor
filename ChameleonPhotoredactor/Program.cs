@@ -1,4 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using ChameleonPhotoredactor.Data;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ChameleonDbContext>(options =>
+{
+    options.UseMySql(connectionString,
+        ServerVersion.AutoDetect(connectionString)
+    );
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,33 +1,35 @@
-﻿namespace ChameleonPhotoredactor.Models.Entities
+﻿using System;
+
+namespace ChameleonPhotoredactor.Models.Entities
 {
     //no encapsulation for timebeing
-    public class ImageEdits
+    public class ImageEdit
     {
-        //setters to private and methods for setters, same as in Image class
-        public int imageEditId { get; set; }
-        //^^could be possibly deleted, `cause on db it will be autoincrement thingy but in code foreign key is enough to associate
-        //image and edits
-        public int imageIdFK { get; set; }
-        //^^idk how to call it otherwise to differintiate it from Models.Entities.Image.imageId
-        public float exposureChange { get; set; }
-        public float contrastChange { get; set; }
-        public float saturationChange { get; set; }
-        public float cropData { get; set; }
-        public string lastEditDate { get; set; }
-        //^^for now idk how to save crop data, may be changed later
-        public int timeSpent { get; set; }
-        //^^ time spent editing image, so that it counts edited only after some amount of time
-        private ImageEdits () { }
+        public int ImageEditId { get; set; }
+        public float ExposureChange { get; set; }
+        public float ContrastChange { get; set; }
+        public float SaturationChange { get; set; }
+        public string? CropData { get; set; }
+        //^^idk how to store it, probably JSON
+        public DateTime LastEditDate { get; set; }
+        public int TimeSpent { get; set; }
 
-        public ImageEdits (int imageEditId, int imageIdFK, float exposureChange, float contrastChange, float saturationChange, float cropData, string lastEditDate)
+        public int ImageId { get; set; }
+
+        public Image Image { get; set; } = null!;
+
+        
+        private ImageEdit() { }
+
+        public ImageEdit(int imageId, float exposureChange, float contrastChange, float saturationChange, int timeSpent, string? cropData = null)
         {
-            this.imageEditId = imageEditId;
-            this.imageIdFK = imageIdFK;
-            this.exposureChange = exposureChange;
-            this.contrastChange = contrastChange;
-            this.saturationChange = saturationChange;
-            this.cropData = cropData;
-            this.lastEditDate = lastEditDate;
+            ImageId = imageId;
+            ExposureChange = exposureChange;
+            ContrastChange = contrastChange;
+            SaturationChange = saturationChange;
+            TimeSpent = timeSpent;
+            CropData = cropData;
+            LastEditDate = DateTime.UtcNow;
         }
     }
 }

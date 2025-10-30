@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChameleonPhotoredactor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ee987fbb3001e34768686e39258a77b7e7bede4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d583db23c623facc5346a725bbf001027b0463b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChameleonPhotoredactor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChameleonPhotoredactor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

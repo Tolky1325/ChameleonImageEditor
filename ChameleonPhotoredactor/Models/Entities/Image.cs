@@ -1,31 +1,37 @@
-﻿namespace ChameleonPhotoredactor.Models.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace ChameleonPhotoredactor.Models.Entities
 {
     //no encapsulation for timebeing
     public class Image
     {
-        //later on change setters to private i suppose
-        //also add methods for setters
-        public int imageId {  get; set; }
-        public int imageUserId { get; set; }
-        public string imageName { get; set; }
-        public byte[] imageData { get; set; }
-        public string imageType { get; set; }
-        public string imageExifData { get; set; }
-        public string imageUploadDate { get; set; }
+        public int ImageId { get; set; } 
+        public string ImageName { get; set; }
+        public byte[] ImageData { get; set; }
+        public string ImageType { get; set; } 
+        //^^png most likely will be only one but for future proofing
+        public string? ImageExifData { get; set; } 
+        public DateTime ImageUploadDate { get; set; }
+
+        public int UserId { get; set; }
+        //^^FK
+
+        public User User { get; set; } = null!;
+
+
+        public ICollection<ImageEdit> Edits { get; set; } = new List<ImageEdit>();
 
         private Image() { }
 
-        public Image(int imageId, int imageUserId, string imageName, byte[] imageData, string imageType, string imageExifData, string imageUploadDate)
+        public Image(int userId, string imageName, byte[] imageData, string imageType, string? imageExifData = null)
         {
-            this.imageId = imageId;
-            this.imageUserId = imageUserId;
-            this.imageName = imageName;
-            this.imageData = imageData;
-            this.imageType = imageType;
-            this.imageExifData = imageExifData;
-            this.imageUploadDate = imageUploadDate;
+            UserId = userId;
+            ImageName = imageName;
+            ImageData = imageData;
+            ImageType = imageType;
+            ImageExifData = imageExifData;
+            ImageUploadDate = DateTime.UtcNow;
         }
     }
-
-    
 }
