@@ -16,9 +16,9 @@
     <div class="editor-layout">
         <nav class="editor-nav">
 
-            <a asp-controller="Account" asp-action="Login"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "Login" ? "active" : "")">
+            <a asp-controller="Home" asp-action="Index"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
                 </div>
