@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Authorization Page";
+﻿@model ChameleonPhotoredactor.Models.ViewModels.Account.RegistrationViewModel
+@{
+    ViewData["Title"] = "Registration Page";
     Layout = "~/Views/Shared/_LayoutRegistration.cshtml";
 }
 
@@ -22,39 +23,43 @@
         <h2 class="text-authorization">Registration</h2>
     </div>
 
-    <form class="auth-form">
+    <form class="auth-form" asp-controller="Account" asp-action="Registration" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="input-group">
-            <input type="text" id="name" name="username" placeholder=" " required>
-            <label id="username_label">Username</label>
+            <input asp-for="Username" placeholder=" " required>
+            <label asp-for="Username"></label>
+            <span asp-validation-for="Username" class="text-danger"></span>
         </div>
 
         <div class="input-group">
-            <input type="text" id="displey_name" name="displey_name" placeholder=" " required>
-            <label id="displey_name_label">Displey name</label>
+            <input asp-for="DisplayName" placeholder=" " required>
+            <label asp-for="DisplayName"></label>
+            <span asp-validation-for="DisplayName" class="text-danger"></span>
         </div>
 
         <div class="input-group">
-            <input type="email" id="email" name="email" placeholder=" " required>
-            <label for="email">Email</label>
+            <input asp-for="Email" placeholder=" " required>
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
 
         <div class="input-group">
-            <input type="password" id="password" name="password" placeholder=" " required>
-            <label id="password_label">Password</label>
+            <input asp-for="Password" placeholder=" " required>
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
         <div class="input-group">
-            <input type="password" id="repassword" name="repassword" placeholder=" " required>
-            <label id="repassword_label">RePassword</label>
+            <input asp-for="ConfirmPassword" placeholder=" " required>
+            <label asp-for="ConfirmPassword"></label>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>
 
         <button class="button-sig_in" type="submit">
             Sign up
-            <span class="material-symbols-outlined">
-                login
-            </span>
+            <span class="material-symbols-outlined">login</span>
         </button>
     </form>
-
 </div>

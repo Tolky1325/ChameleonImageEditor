@@ -20,21 +20,30 @@ namespace ChameleonPhotoredactor.Data
 
             
             modelBuilder.Entity<User>()
-                .HasOne(u => u.UserStats) // A User has one UserStats
-                .WithOne(s => s.User)       // A UserStats is related to one User
-                .HasForeignKey<UserStats>(s => s.UserId); // The FK is UserStats.UserId
+                .HasOne(u => u.UserStats) 
+                //^^ A User havr one UserStats
+                .WithOne(s => s.User)       
+                //^^ A UserStats is related to one User
+                .HasForeignKey<UserStats>(s => s.UserId); 
+                //^^ The FK is UserStats.UserId
 
             
             modelBuilder.Entity<User>()
-                .HasMany(u => u.Images)     // A User has many Images
-                .WithOne(i => i.User)       // An Image is related to one User
-                .HasForeignKey(i => i.UserId); // The FK is Image.UserId
+                .HasMany(u => u.Images)     
+                //^^ A User have many Images
+                .WithOne(i => i.User)       
+                //^^ An Image is related to one User
+                .HasForeignKey(i => i.UserId); 
+                //^^ The FK is Image.UserId
 
             
             modelBuilder.Entity<Image>()
-                .HasMany(i => i.Edits)      // An Image has many Edits
-                .WithOne(e => e.Image)      // An Edit is related to one Image
-                .HasForeignKey(e => e.ImageId); // The FK is ImageEdit.ImageId
+                .HasMany(i => i.Edits)      
+                //^^ An Image have many Edits
+                .WithOne(e => e.Image)      
+                //^^ An Edit is related to one Image
+                .HasForeignKey(e => e.ImageId); 
+                //^^ The FK is ImageEdit.ImageId
         }
     }
 }
