@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ChameleonPhotoredactor.Models.ViewModels.Account.LoginViewModel
+@{
     ViewData["Title"] = "Authorization Page";
     Layout = "~/Views/Shared/_LayoutGuest.cshtml";
 }
@@ -22,33 +23,34 @@
         <h2 class="text-authorization">Authorization</h2>
     </div>
 
-    <form class="auth-form">
+    <form class="auth-form" asp-controller="Account" asp-action="Login" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="input-group">
-            <input type="text" id="name" name="username" placeholder=" " required>
-            <label id="username_label">Username</label>
+            <input asp-for="Username" placeholder=" " required>
+            <label asp-for="Username"></label>
+            <span asp-validation-for="Username" class="text-danger"></span>
         </div>
 
         <div class="input-group">
-            <input type="password" id="password" name="password" placeholder=" " required>
-            <label id="password_label">Password</label>
+            <input asp-for="Password" placeholder=" " required>
+            <label asp-for="Password"></label>
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
         <button class="button-sig_in" type="submit">
             Sign in
-            <span class="material-symbols-outlined">
-                login
-            </span>
+            <span class="material-symbols-outlined">login</span>
         </button>
 
         <div class="form_login-content">
             <h4 class="text-authorization_info">Still haven`t an account?</h4>
             <a asp-controller="Account" asp-action="Registration"
-            class="text-authorization_a @(ViewContext.RouteData.Values["controller"]?.ToString() == "Registration" ? "active" : "")">
+               class="text-authorization_a @(ViewContext.RouteData.Values["controller"]?.ToString() == "Registration" ? "active" : "")">
 
                 Registration
-                </a>
+            </a>
         </div>
     </form>
-
 </div>

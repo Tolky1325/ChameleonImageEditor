@@ -1,17 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Authorization Page";
+    ViewData["Title"] = "Editor Page";
     Layout = "~/Views/Shared/_LayoutBaseEditor.cshtml";
 }
 
 <div class="content-container_Full">
+
+    <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
+        
+    </form>
     <div class="image_container">
         @if (ViewBag.ImagePath != null)
         {
             <img src="@ViewBag.ImagePath" alt="Uploaded Image" style="max-width: 500px; border-radius: 10px;" />
         }
+        else if (ViewBag.ImageData != null)
+        {
+            var base64 = Convert.ToBase64String(ViewBag.ImageData);
+            var imgSrc = String.Format("data:{0};base64,{1}", ViewBag.ImageType, base64);
+            <img src="@imgSrc" alt="Uploaded Image" style="max-width: 500px; border-radius: 10px;" />
+        }
         else
         {
-            <p>No image selected.</p>
+            <p>No image selected. Please upload one.</p>
         }
     </div>
 </div>
