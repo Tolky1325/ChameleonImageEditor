@@ -6,11 +6,7 @@
 <div class="content-container_Full">
 
     <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
-        <div>
-            <label>Choose a file to edit:</label>
-            <input type="file" name="file" accept="image/png, image/jpeg" required />
-            <button type="submit">Upload and Edit</button>
-        </div>
+        
     </form>
     <div class="image_container">
         @if (ViewBag.ImagePath != null)

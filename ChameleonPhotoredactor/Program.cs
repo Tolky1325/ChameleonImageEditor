@@ -13,6 +13,14 @@ builder.Services.AddDbContext<ChameleonDbContext>(options =>
     );
 });
 
+builder.Services.AddAuthentication(Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login"; // Where to send users who aren't logged in
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromDays(30); // How long the guest cookie lasts
+    });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -30,6 +38,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
