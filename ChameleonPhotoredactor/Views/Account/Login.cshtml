@@ -5,6 +5,20 @@
 }
 
 <div class="content-container2">
+    <img src="~/images/Font-Shapes/Authorization-circle.svg" class="shape shape9" />
+    <img src="~/images/Font-Shapes/Authorization-circle2.svg" class="shape shape10" />
+    <img src="~/images/Font-Shapes/Authorization-circle.svg" class="shape shape11" />
+    <img src="~/images/Font-Shapes/Flower_Authorization.svg" class="shape shape12" />
+    <img src="~/images/Font-Shapes/Square_Authorization.svg" class="shape shape13" />
+    <img src="~/images/Font-Shapes/Square45_Authorization.svg" class="shape shape14" />
+    <img src="~/images/Font-Shapes/Circle_Authorization.svg" class="shape shape15" />
+    <img src="~/images/Font-Shapes/12-sided_cookie_Authorization.svg" class="shape shape16" />
+    <img src="~/images/Font-Shapes/Circle2_Authorization.svg" class="shape shape17" />
+    <img src="~/images/Font-Shapes/Pill_Authorization.svg" class="shape shape18" />
+
+    <img src="~/images/Font-Shapes/Authorization-frame-top.svg" class="shape shape_top" />
+    <img src="~/images/Font-Shapes/Authorization-frame-bottom.svg" class="shape shape_bottom" />
+
     <div class="login-content">
         <h2 class="text-authorization">Authorization</h2>
     </div>
@@ -31,6 +45,12 @@
         </button>
 
         <div class="form_login-content">
+            <h4 class="text-authorization_info">Still haven`t an account?</h4>
+            <a asp-controller="Account" asp-action="Registration"
+               class="text-authorization_a @(ViewContext.RouteData.Values["controller"]?.ToString() == "Registration" ? "active" : "")">
+
+                Registration
+            </a>
         </div>
     </form>
 </div>
