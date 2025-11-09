@@ -19,9 +19,9 @@
     <div class="guest-layout">
         <nav class="guest-nav">
 
-            <a asp-controller="Account" asp-action="Login"
-                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
-                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Login" ? "active" : "")">
+            <a asp-controller="Library" asp-action="Library"
+                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Library" &&
+                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Library" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
                 </div>
@@ -36,6 +36,17 @@
                 </div>
                 Top
             </a>
+
+            <a asp-controller="Account" asp-action="Profile"
+                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Profile" &&
+                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+                Profile
+            </a>
+
+
         </nav>
 
         <main class="guest-main">

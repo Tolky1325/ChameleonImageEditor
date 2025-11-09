@@ -36,7 +36,7 @@ namespace ChameleonPhotoredactor.Controllers.Account
                     //here is gona be logic for redirecting to registered user page
                     //maybe creating user session idk 
                     //for timebeing redirect to homepage
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Library", "Library");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

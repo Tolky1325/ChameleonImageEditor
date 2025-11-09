@@ -3,13 +3,27 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<div class="content-container2">
-
-    <div class="guest-content">
+<div class="content-container_stats">
+    <div class="bottom_stats">
         <div class="title-stats">
-            <h1>Community Leaderboard</h1>
+            <span class="material-symbols-outlined icon_image" style="font-size: 30px;">
+                Trophy
+            </span>
+            <h3>Community Leaderboard</h3>
         </div>
 
+        <div class="filter_stats">
+            <button class="sorting_parameter sort_imports">Imports</button>
 
+            <button class="sorting_parameter sort_edits">Edits</button>
+
+            <button class="sorting_parameter sort_exported">
+                Exported
+                <span class="material-symbols-outlined">arrow_drop_up</span>
+            </button>
+        </div>
+
+        </div>
+    <div class="user_stats">
     </div>
 </div>
