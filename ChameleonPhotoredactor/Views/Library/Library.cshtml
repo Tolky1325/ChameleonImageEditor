@@ -5,7 +5,21 @@
 
 <div class="content-container_Full">
 
-    <div class="image_container">
+        <div class="button-import-container">
 
-    </div>
+            <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
+
+                <button class="import-btn" type="button" id="uploadBtn">
+                    <span class="material-symbols-outlined icon_image" style="font-size: 30px;">
+                        image
+                    </span>
+                    <span class="material-symbols-outlined icon_upload" style="font-size: 30px">
+                        upload
+                    </span>
+                    <span class="text-import_a">Import</span>
+                </button>
+            </form>
+
+        </div>
 </div>

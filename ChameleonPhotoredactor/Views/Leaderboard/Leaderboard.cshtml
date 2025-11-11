@@ -1,29 +1,100 @@
-﻿@{
-    ViewData["Title"] = "Editor Page";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+﻿@model List<ChameleonPhotoredactor.Models.ViewModels.Leaderboard.LeaderboardViewModel>
+
+@{
+    ViewData["Title"] = "Community Leaderboard";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml"; // Використовуємо ваш Layout
+
+    // Отримуємо рейтинг поточного користувача з ViewBag
+    var currentUser = ViewBag.CurrentUserRanking as ChameleonPhotoredactor.Models.ViewModels.Leaderboard.LeaderboardViewModel;
 }
 
 <div class="content-container_stats">
+
     <div class="bottom_stats">
+
         <div class="title-stats">
             <span class="material-symbols-outlined icon_image" style="font-size: 30px;">
-                Trophy
+                trophy
             </span>
             <h3>Community Leaderboard</h3>
         </div>
 
         <div class="filter_stats">
             <button class="sorting_parameter sort_imports">Imports</button>
-
             <button class="sorting_parameter sort_edits">Edits</button>
-
             <button class="sorting_parameter sort_exported">
                 Exported
                 <span class="material-symbols-outlined">arrow_drop_up</span>
             </button>
         </div>
 
-        </div>
-    <div class="user_stats">
     </div>
+
+    <div class="leaderboard-header-row">
+        <div class="rank-col-header">#</div>
+        <div class="nickname-col-header">Nickname</div>
+        <div class="stats-col-header">
+            <span>Imports</span>
+            <span>Edits</span>
+            <span>Exported</span>
+        </div>
+    </div>
+
+    <div class="user_stats">
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                // Клас 'rank-one' можна використовувати для спеціальної стилізації першого місця
+                <div class="ranking-row @(item.Rank == 1 ? "rank-one" : "")">
+
+                    <div class="rank-col">
+                        <span class="rank-number">@item.Rank</span>
+                        @if (item.Rank == 1)
+                        {
+                            <span class="material-symbols-outlined crown-icon">military_tech</span>
+                        }
+                    </div>
+
+                    <div class="nickname-col">
+                        <span class="material-symbols-outlined user-icon">person</span>
+                        <span class="nickname-text">@item.Username</span>
+                    </div>
+
+                    <div class="stats-col">
+                        <span class="stat-value">@item.Imports</span>
+                        <span class="stat-value">@item.Edits</span>
+                        <span class="stat-value">@item.Exported</span>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p style="text-align: center; padding: 20px;">Наразі лідерборд порожній. Будьте першим!</p>
+        }
+    </div>
+
+    @if (currentUser != null && currentUser.Rank > Model.Count())
+    {
+        <h3 class="your-ranking-header">Your ranking</h3>
+
+        <div class="ranking-row your-ranking-row">
+            <div class="rank-col">
+                <span class="rank-number">@currentUser.Rank</span>
+            </div>
+
+            <div class="nickname-col">
+                <span class="material-symbols-outlined user-icon">person</span>
+                <span class="nickname-text">@currentUser.Username</span>
+            </div>
+
+            <div class="stats-col">
+                <span class="stat-value">@currentUser.Imports</span>
+                <span class="stat-value">@currentUser.Edits</span>
+                <span class="stat-value">@currentUser.Exported</span>
+            </div>
+        </div>
+    }
+
 </div>

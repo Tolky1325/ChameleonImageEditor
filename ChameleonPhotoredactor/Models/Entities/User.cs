@@ -15,6 +15,7 @@
 
         public UserStats? UserStats { get; set; }
         public ICollection<Image> Images { get; set; } = new List<Image>();
+        public string Username { get; internal set; }
         private User() { }
 
         public User ( string userName, string userDisplayName, string userEmail, string userPassword, byte[] userProfilePic, DateTime userCreationDate, bool isTemp)

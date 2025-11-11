@@ -1,0 +1,45 @@
+.info-block {
+    background: #fff;
+    width: 180px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+    .info-block p {
+        margin: 0;
+        font-size: 14px;
+        display: inline;
+        white-space: normal;
+    }
+
+    .info-block p {
+        margin: 2px 0;
+        font-size: 14px;
+    }
+
+
+.button_export {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    background-color: #FFBA38;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 391px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    button:hover {
+        background-color: #ff6a00;
+    }
