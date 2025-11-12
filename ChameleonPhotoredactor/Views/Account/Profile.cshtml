@@ -1,6 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Editor Page";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    ViewData["Title"] = "Profile Page";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
 
 <div class="content-container_library">
@@ -8,19 +8,17 @@
         <div class="bottom_info-container">
             <h4>Note: For editing new photo you need import it first</h4>
         </div>
-        <div class="button-import-container">
 
+        <div class="button-import-container">
             <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
-                <button class="library_button-import import-btn" type="button" id="uploadBtn">
+                <button class="library_button-import" type="button" id="uploadBtn">
+
                     <span class="text-import_a">Import</span>
-                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px">
-                        upload
-                    </span>
+                    <span class="material-symbols-outlined icon_upload">upload</span>
                 </button>
             </form>
         </div>
     </div>
-
 </div>

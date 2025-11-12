@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - Chameleon Editor</title>
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/library.css" />
+    <link rel="stylesheet" href="~/css/guest.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
+
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -34,7 +36,7 @@
             </a>
 
             <a asp-controller="Account" asp-action="Profile"
-                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Profile" &&
+                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
                                                     ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined">account_circle</span>
@@ -44,40 +46,6 @@
 
 
         </nav>
-
-        <div class="editor-right-panel">
-            <div class="histogram">
-                <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
-                <p>Histogram</p>
-            </div>
-
-            <div class="info-block">
-                <p>ƒ/1.8 · 1/500 · ISO 400 · 1600×800 px · png</p>
-            </div>
-
-            <div class="info-block">
-                <p>Exposure: +40</p>
-                <p>Contrast: +30</p>
-            </div>
-            
-            <div class="Library_button-group">
-                <button class="library_button button_edit" type="submit">
-                    Edit
-                    <span class="material-symbols-outlined">edit</span>
-                </button>
-
-                <button class="library_button button_export" type="submit">
-                    Export
-                    <span class="material-symbols-outlined">download</span>
-                </button>
-
-                <button class="library_button button_delete" type="submit">
-                    Delete
-                    <span class="material-symbols-outlined">delete</span>
-                </button>
-            </div>
-
-        </div>
 
         <main class="guest-main">
             @RenderBody()
