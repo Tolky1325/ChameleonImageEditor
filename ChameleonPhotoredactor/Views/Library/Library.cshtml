@@ -4,24 +4,27 @@
 }
 
 <div class="content-container_library">
-
+    <div class="bottom_library">
+        <div class="bottom_info-container">
+            <h3>Note: For editing new photo you need import it first</h3>
+        </div>
         <div class="button-import-container">
 
             <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
-                <button class="import-btn" type="button" id="uploadBtn">
+                <button class="library_button-import import-btn" type="button" id="uploadBtn">
+                    <span class="text-import_a">Import</span>
+
                     <span class="material-symbols-outlined icon_image" style="font-size: 30px;">
                         image
                     </span>
                     <span class="material-symbols-outlined icon_upload" style="font-size: 30px">
                         upload
                     </span>
-                    <span class="text-import_a">Import</span>
                 </button>
             </form>
-
-            <h1>fvhvjkjbkbk</h1>
-
         </div>
+    </div>
+
 </div>
