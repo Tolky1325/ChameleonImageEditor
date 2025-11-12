@@ -49,47 +49,6 @@ body {
         transition: 0.3s;
     }
 
-.logo-container {
-    background-color: transparent;
-    border-radius: 20px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-.nav-link.active .logo-container,
-.nav-link.active .login-container {
-    background-color: #FFDC89 !important;
-}
-
-.login-container {
-    background-color: transparent;
-    border-radius: 30px;
-    width: 60px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.guest-nav a:hover .login-container,
-.guest-nav a:hover .logo-container {
-    background-color: #FFF5C5;
-}
-
-.guest-nav a:not(active):hover .logo-img,
-.guest-nav a:not(active):hover .material-symbols-outlined {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
 .guest-main {
     flex: 1;
     display: flex;
@@ -97,20 +56,6 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-}
-
-.content-container {
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 28px;
-    margin-right: 20px;
-    margin-top: 40px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .guest-nav a.active .icon-container {
@@ -157,7 +102,7 @@ body {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     background-color: #FFDC89;
-    width: 100%;
+    width: 70%;
     height: 60%;
     font-size: 16px;
     border: none;
@@ -166,6 +111,10 @@ body {
     cursor: pointer;
     transition: background 0.2s;
 }
+
+    .bottom_info-container h4 {
+        font-weight: 100;
+    }
 
 .library_button-import {
     display: flex;
@@ -215,13 +164,6 @@ body {
     font-family: 'Nunito', sans-serif;
     z-index: 3;
 }
-
-    .editor-right-panel h3 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #241A0A;
-    }
 
 .histogram {
     display: flex;

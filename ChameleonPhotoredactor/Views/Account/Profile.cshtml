@@ -3,20 +3,24 @@
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
 
-<div class="content-container_library">
-    <div class="bottom_library">
+<div class="content-container_profile">
+    <img src="~/images/Font-Shapes/Authorization-circle.svg" class="shape shape9" />
+    <img src="~/images/Font-Shapes/Authorization-circle2.svg" class="shape shape10" />
+    <img src="~/images/Font-Shapes/Authorization-circle.svg" class="shape shape11" />
+
+    <div class="bottom_profile">
         <div class="bottom_info-container">
-            <h4>Note: For editing new photo you need import it first</h4>
+            <h4>Manage your account settings and view your statistics</h4>
         </div>
 
         <div class="button-import-container">
             <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
-                <button class="library_button-import" type="button" id="uploadBtn">
+                <button class="profile_button-sign_out" type="button" id="uploadBtn">
 
-                    <span class="text-import_a">Import</span>
-                    <span class="material-symbols-outlined icon_upload">upload</span>
+                    <span class="text-import_a">Sign Out</span>
+                    <span class="material-symbols-outlined icon_upload">logout</span>
                 </button>
             </form>
         </div>

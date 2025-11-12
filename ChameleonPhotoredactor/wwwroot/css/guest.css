@@ -102,7 +102,6 @@ footer {
 
 .shape {
     position: absolute;
-    transition: transform 10s ease-in-out;
 }
 
 .shape1 {
