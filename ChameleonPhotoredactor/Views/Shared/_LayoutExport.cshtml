@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Chameleon Editor</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/guest.css" />
+    <link rel="stylesheet" href="~/css/editor.css" />
+    <link rel="stylesheet" href="~/css/export.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="~/js/site.js"></script>
+</head>
+
+<body>
+    <div class="editor-layout">
+        <nav class="editor-nav">
+
+            <a asp-controller="Home" asp-action="Index"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+                </div>
+                Back
+            </a>
+
+            <a asp-controller="Editor" asp-action="BaseEditor"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
+                </div>
+                Edit
+            </a>
+
+            <a asp-controller="Editor" asp-action="BaseEditor"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">crop</span>
+                </div>
+                Crop
+            </a>
+
+            <a asp-controller="Account" asp-action="Export"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
+                </div>
+                Export
+            </a>
+        </nav>
+
+        <main class="guest-main">
+            @RenderBody()
+        </main>
+
+        <div class="editor-right-panel">
+            <div class="histogram">
+                <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
+                <p>Histogram</p>
+            </div>
+
+            <div class="info-block">
+                <p>ƒ/1.8 · 1/500 · ISO 400 · 1600×800 px · png</p>
+            </div>
+
+            <div class="info-block">
+                <p>Exposure: +40</p>
+                <p>Contrast: +30</p>
+            </div>
+
+            <button class="button_export" type="submit">
+                Export
+                <span class="material-symbols-outlined">download</span>
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>
