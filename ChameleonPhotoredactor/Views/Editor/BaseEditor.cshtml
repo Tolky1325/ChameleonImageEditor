@@ -17,7 +17,7 @@
         {
             var base64 = Convert.ToBase64String(ViewBag.ImageData);
             var imgSrc = String.Format("data:{0};base64,{1}", ViewBag.ImageType, base64);
-            <img src="@imgSrc" alt="Uploaded Image" style="max-width: 500px; border-radius: 10px;" />
+            <img src="@imgSrc" alt="Uploaded Image" id="editable_image" style="max-width: 500px; border-radius: 10px;" />
         }
         else
         {
@@ -25,3 +25,76 @@
         }
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const image = document.getElementById("editable_image");
+        const exposureSlider = document.getElementById("exposure_slider");
+        const contrastSlider = document.getElementById("contrast_slider");
+        const exposureValue = document.getElementById("exposure_value");
+        const contrastValue = document.getElementById("contrast_value");
+
+        let saveTimer = null;
+        const saveDelay = 2000; 
+        //                 ^^2 seconds (2000 milliseconds)
+
+        if (image) {
+
+            function applyFilters() {
+                const exposure = 1 + (exposureSlider.value / 100);
+                const contrast = 1 + (contrastSlider.value / 100);
+
+                image.style.filter = `brightness(${exposure}) contrast(${contrast})`;
+
+                exposureValue.textContent = exposureSlider.value;
+                contrastValue.textContent = contrastSlider.value;
+            }
+
+            function autoSaveEdits() {
+                console.log("Saving edits...");
+
+                const editData = {
+                ImageEditId: @(ViewBag.ImageEditId ?? 0), 
+                Exposure: parseFloat(exposureSlider.value),
+                Contrast: parseFloat(contrastSlider.value)
+                };
+
+                fetch('@Url.Action("SaveEdits", "Editor")', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': getAntiCSRFToken()
+                    },
+                    body: JSON.stringify(editData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        console.log("Save successful:", data.message);
+                    } else {
+                        console.error("Save failed:", data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during auto-save:', error);
+                });
+            }
+
+            function onSliderInput() {
+                applyFilters();
+                clearTimeout(saveTimer);
+
+                saveTimer = setTimeout(autoSaveEdits, saveDelay);
+            }
+
+            exposureSlider.addEventListener("input", onSliderInput);
+            contrastSlider.addEventListener("input", onSliderInput);
+        }
+
+        function getAntiCSRFToken() {
+            const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+            return tokenInput ? tokenInput.value : '';
+        }
+    });
+</script>

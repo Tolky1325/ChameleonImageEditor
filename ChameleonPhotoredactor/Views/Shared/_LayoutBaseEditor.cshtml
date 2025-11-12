@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    @Html.AntiForgeryToken()
     <div class="editor-layout">
         <nav class="editor-nav">
 
@@ -74,13 +75,15 @@
             </div>
 
             <div class="slider-group">
-                <label>Exposition</label>
-                <input type="range" min="-100" max="100" value="0" class="slider">
+                <label>Exposure</label>
+                <span id="exposure_value">0</span>
+                <input type="range" min="-100" max="100" value="0" class="slider" id="exposure_slider">
             </div>
 
             <div class="slider-group">
                 <label>Contrast</label>
-                <input type="range" min="-100" max="100" value="0" class="slider">
+                <span id="contrast_value">0</span>
+                <input type="range" min="-100" max="100" value="0" class="slider" id="contrast_slider">
             </div>
         </div>
 
