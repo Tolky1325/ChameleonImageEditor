@@ -2,9 +2,8 @@
 
 @{
     ViewData["Title"] = "Community Leaderboard";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml"; // Використовуємо ваш Layout
+    Layout = "~/Views/Shared/_LayoutLeaderboard.cshtml";
 
-    // Отримуємо рейтинг поточного користувача з ViewBag
     var currentUser = ViewBag.CurrentUserRanking as ChameleonPhotoredactor.Models.ViewModels.Leaderboard.LeaderboardViewModel;
 }
 
