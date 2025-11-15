@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.Entities;
+using ChameleonPhotoredactor.Models.ViewModels.Editor;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Collections.Generic;
 using System;
 using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
 
 public class EditorController : Controller
 {
@@ -23,8 +25,6 @@ public class EditorController : Controller
     [HttpGet]
     public IActionResult BaseEditor()
     {
-        
-        
         return View();
     }
 
@@ -42,7 +42,7 @@ public class EditorController : Controller
         else
         {
 
-            string tempUsername = "guest_" + Guid.NewGuid().ToString("N").Substring(0, 10);
+            string tempUsername = "guest__" + Guid.NewGuid().ToString("N").Substring(0, 10);
             string tempEmail = $"{tempUsername}@temp.com";
 
 
@@ -94,6 +94,9 @@ public class EditorController : Controller
 
 
         if (file != null && file.Length > 0)
+        //^^if (file != null && file.Length > 0 && file.ContentType == "image/png")
+        //for timebeing there is no limiter to specific data type
+        //later on i suppose it would be better to do such limiter
         { 
             
             byte[] fileData;
@@ -115,8 +118,24 @@ public class EditorController : Controller
             _context.Images.Add(image);
             await _context.SaveChangesAsync();
 
+            var imageEdit = new ImageEdit(
+            imageId: image.ImageId,
+            exposureChange: 0,
+            contrastChange: 0,
+            saturationChange: 0,
+            timeSpent: 0,
+            cropData: null
+            );
+
+            _context.ImageEdits.Add(imageEdit);
+            await _context.SaveChangesAsync();
+            
+            //^^creating taple for ImageEdit(so that we could update it while editing)
+
             ViewBag.ImageData = fileData;
             ViewBag.ImageType = file.ContentType;
+            ViewBag.ImageId = image.ImageId;
+            ViewBag.ImageEditId = imageEdit.ImageEditId;
         }
         else
         {
@@ -126,5 +145,36 @@ public class EditorController : Controller
         return View();
     }
 
+    [HttpPost]
+    public async Task<IActionResult> SaveEdits([FromBody] BaseEditorViewModel model)
+    {
+        if (!User.Identity.IsAuthenticated)
+        {
+            return Json(new { success = false, message = "User not authenticated." });
+        }
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+        var editToUpdate = await _context.ImageEdits
+        .Include(e => e.Image) 
+        //^^Include the Image for the security check
+        .FirstOrDefaultAsync(e => e.ImageEditId == model.ImageEditId);
+
+        if (editToUpdate == null)
+        {
+            return Json(new { success = false, message = "Edit record not found." });
+        }
+        if (editToUpdate.Image.UserId != userId)
+        {
+            return Json(new { success = false, message = "Access denied." });
+        }
+
+        editToUpdate.ExposureChange = model.Exposure;
+        editToUpdate.ContrastChange = model.Contrast;
+        editToUpdate.LastEditDate = DateTime.UtcNow;
+
+        await _context.SaveChangesAsync();
+
+        return Json(new { success = true, message = "Edits updated successfully." });
+    }
 
 }
