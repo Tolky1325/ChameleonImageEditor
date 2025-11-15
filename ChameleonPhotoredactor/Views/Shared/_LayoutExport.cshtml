@@ -35,15 +35,6 @@
                 Edit
             </a>
 
-            <a asp-controller="Editor" asp-action="BaseEditor"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
-                <div class="icon-container">
-                    <span class="material-symbols-outlined" style="font-size: 24px;">crop</span>
-                </div>
-                Crop
-            </a>
-
             <a asp-controller="Account" asp-action="Export"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
                                     ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")">
