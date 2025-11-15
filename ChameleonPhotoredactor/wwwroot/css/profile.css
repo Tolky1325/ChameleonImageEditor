@@ -1,4 +1,4 @@
-html {
+﻿html {
     font-size: 14px;
     position: relative;
     min-height: 100%;
@@ -75,7 +75,7 @@ body {
 .content-container_profile {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 40px;
     position: relative;
@@ -163,4 +163,46 @@ body {
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
+}
+
+.profile-info_container {
+    display: flex;
+    width: 464px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.avatar-username_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.avatar-container {
+    display: flex;
+    width: 9%;
+    height: 100%;
+}
+
+.username-info_container {
+    width: 91% !important;
+}
+
+.profile_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nnito', sans-serif;
+    background-color: #FFDC89;
+    width: 96%;
+    font-size: 16px;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
