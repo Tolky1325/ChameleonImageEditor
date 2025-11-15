@@ -34,10 +34,22 @@
         const contrastSlider = document.getElementById("contrast_slider");
         const exposureValue = document.getElementById("exposure_value");
         const contrastValue = document.getElementById("contrast_value");
+        const exportLink = document.getElementById("export-nav-link");
+        const imageEditId = @(ViewBag.ImageEditId ?? 0); // Get ID from
 
         let saveTimer = null;
-        const saveDelay = 2000; 
+        const saveDelay = 2000;
         //                 ^^2 seconds (2000 milliseconds)
+
+        if (exportLink && imageEditId > 0) {
+          
+            const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
+            exportLink.href = exportUrl;
+        } else if (exportLink) {
+           
+            exportLink.style.display = 'none';
+        }
+
 
         if (image) {
 

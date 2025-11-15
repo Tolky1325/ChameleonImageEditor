@@ -42,7 +42,7 @@ public class EditorController : Controller
         else
         {
 
-            string tempUsername = "guest_" + Guid.NewGuid().ToString("N").Substring(0, 10);
+            string tempUsername = "guest__" + Guid.NewGuid().ToString("N").Substring(0, 10);
             string tempEmail = $"{tempUsername}@temp.com";
 
 
@@ -155,7 +155,8 @@ public class EditorController : Controller
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         var editToUpdate = await _context.ImageEdits
-        .Include(e => e.Image) // <-- Include the Image for the security check
+        .Include(e => e.Image) 
+        //^^Include the Image for the security check
         .FirstOrDefaultAsync(e => e.ImageEditId == model.ImageEditId);
 
         if (editToUpdate == null)

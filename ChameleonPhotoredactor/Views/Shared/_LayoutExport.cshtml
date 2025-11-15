@@ -73,12 +73,13 @@
                 <p>Contrast: +30</p>
             </div>
 
-            <button class="button_export" type="submit">
+            <button id="export-download-trigger" class="button_export" type="button">
                 Export
                 <span class="material-symbols-outlined">download</span>
             </button>
         </div>
 
     </div>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
