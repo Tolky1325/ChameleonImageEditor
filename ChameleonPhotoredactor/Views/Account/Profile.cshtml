@@ -27,33 +27,81 @@
 
     </div>
 
-    <div class="profile-info_container">
-        <div class="avatar-username_container">
-            <div class="avatar-container">
-                <button class="btn-change-avatar">p</button>
+    <div class="profil_information">
+        <div class="profile-info_container">
+            <div class="avatar-username_container">
+                <div class="avatar-container">
+                    <span class="material-symbols-outlined icon_upload" style="font-size: 50px;">person</span>
+                </div>
+
+                <div class="profile_container username-info_container">
+                    <div class="label">
+                        Username
+                    </div>
+                    <div class="user_info">xxx</div>
+                </div>
             </div>
 
-            <div class="profile_container username-info_container">
-                <span class="label">Username:</span>
+
+            <div class="profile_container displae-name-info_container">
+                <div class="label">
+                    Display Name
+                </div>
+                <div class="user_info">xxx</div>
+            </div>
+
+            <div class="profile_container email-info_container">
+                <div class="label">
+                    Email
+                </div>
+                <div class="user_info">xxx</div>
+            </div>
+
+            <div class="profile_container password-info_container">
+                <div class="label">
+                    Password
+                </div>
+                <div class="user_info">xxx</div>
+            </div>
+
+            <div class="profile_container member-since-info_container">
+                <div class="label">
+                    Member since
+                </div>
+                <div class="user_info">xxx</div>
+            </div>
+
+            <div class="btn_edit-profile_container">
+                <button class="btn_edit-profile">
+                    Edit Profile
+                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">edit</span>
+                </button>
             </div>
         </div>
 
+        <div class="metrics-info_container">
+            <h3>Your Statistics</h3>
 
-        <div class="profile_container displae-name-info_container">
-            <span class="label">Display Name:</span>
+            <div class="metric_block">
+                <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">upload</span>
+                <div class="metric_label">Imported</div>
+                <div class="metric_value">0</div> <!-- Model.ImportCount -->
+            </div>
+
+            <div class="metric_block">
+                <span class="material-symbols-outlined icon_upload discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
+                <div class="metric_label">Edited</div>
+                <div class="metric_value">0</div> <!-- Model.EditCount -->
+            </div>
+
+            <div class="metric_block">
+                <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">download</span>
+                <div class="metric_label">Exported</div>
+                <div class="metric_value">0</div> <!-- Model.ExportCount -->
+            </div>
         </div>
 
-        <div class="profile_container email-info_container">
-            <span class="label">Email:</span>
-        </div>
-
-        <div class="profile_container password-info_container">
-            <span class="label">Password:</span>
-        </div>
-
-        <div class="profile_container member-since-info_container">
-            <span class="label">Member since:</span>
-        </div>
     </div>
+    
 
 </div>
