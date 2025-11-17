@@ -29,17 +29,7 @@
 
     </div>
 
-    <div class="leaderboard-header-row">
-        <div class="rank-col-header">#</div>
-        <div class="nickname-col-header">Nickname</div>
-        <div class="stats-col-header">
-            <span>Imports</span>
-            <span>Edits</span>
-            <span>Exported</span>
-        </div>
-    </div>
-
-    <div class="user_stats">
+    <div class="user_stats_all">
         @if (Model.Any())
         {
             @foreach (var item in Model)
@@ -55,15 +45,26 @@
                         }
                     </div>
 
+                    <span class="material-symbols-outlined user-icon">person</span>
+
                     <div class="nickname-col">
-                        <span class="material-symbols-outlined user-icon">person</span>
                         <span class="nickname-text">@item.Username</span>
                     </div>
 
                     <div class="stats-col">
-                        <span class="stat-value">@item.Imports</span>
-                        <span class="stat-value">@item.Edits</span>
-                        <span class="stat-value">@item.Exported</span>
+
+                        <div class="iports_stat-value">
+                            <span class="stat-value">@item.Imports</span>
+                        </div>
+
+                        <div class ="edits_stat-value">
+                            <span class="stat-value">@item.Edits</span>
+                        </div>
+
+                        <div class="exports_stat-value">
+                            <span class="stat-value">@item.Exported</span>
+                        </div>
+
                     </div>
                 </div>
             }
@@ -95,5 +96,9 @@
             </div>
         </div>
     }
+
+    <div class="user_stats">
+
+    </div>
 
 </div>

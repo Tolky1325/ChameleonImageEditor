@@ -35,8 +35,8 @@
                 Edit
             </a>
 
-            <a asp-controller="Account" asp-action="Export"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
+            <a asp-controller="Export" asp-action="Export"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
                                     ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
