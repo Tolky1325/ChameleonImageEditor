@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Threading.Tasks;
 using System.Security.Claims;
@@ -21,10 +21,42 @@ public class EditorController : Controller
         _context = context;
     }
 
-    
+
     [HttpGet]
-    public IActionResult BaseEditor()
+    public async Task<IActionResult> BaseEditor(int? id)
     {
+        if (id.HasValue && id.Value > 0)
+        {
+            
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdStr))
+            {
+                
+                return View();
+            }
+            var userId = int.Parse(userIdStr);
+
+            var imageEdit = await _context.ImageEdits
+                                .Include(e => e.Image)
+                                .FirstOrDefaultAsync(e => e.ImageEditId == id.Value);
+
+            if (imageEdit != null && imageEdit.Image != null && imageEdit.Image.UserId == userId)
+            {
+
+                ViewBag.ImageData = imageEdit.Image.ImageData;
+                ViewBag.ImageType = imageEdit.Image.ImageType;
+                ViewBag.ImageId = imageEdit.Image.ImageId;
+                ViewBag.ImageEditId = imageEdit.ImageEditId;
+
+                ViewBag.InitialExposure = imageEdit.ExposureChange;
+                ViewBag.InitialContrast = imageEdit.ContrastChange;
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
         return View();
     }
 

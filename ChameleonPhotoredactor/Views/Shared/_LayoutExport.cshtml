@@ -26,18 +26,19 @@
                 Back
             </a>
 
-            <a asp-controller="Editor" asp-action="BaseEditor"
+            <a asp-controller="Editor" asp-action="BaseEditor" asp-route-id="@ViewBag.ImageEditId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
+                                                   ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
                 </div>
                 Edit
             </a>
 
-            <a asp-controller="Export" asp-action="Export"
+            <a asp-controller="Export" asp-action="Export" asp-route-id="@ViewBag.ImageEditId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")">
+                                               ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")"
+               id="export-nav-link">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
                 </div>
