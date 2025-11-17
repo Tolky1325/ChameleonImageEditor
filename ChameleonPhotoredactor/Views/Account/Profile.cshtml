@@ -14,10 +14,10 @@
         </div>
 
         <div class="button-import-container">
-            <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
+            <form asp-controller="Account" asp-action="Signout" method="post">
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
-                <button class="profile_button-sign_out" type="button" id="uploadBtn">
+                <button class="profile_button-sign_out" type="submit" id="uploadBtn">
 
                     <span class="text-import_a">Sign Out</span>
                     <span class="material-symbols-outlined icon_upload">logout</span>

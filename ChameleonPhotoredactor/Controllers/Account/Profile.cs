@@ -1,10 +1,12 @@
+using BCrypt.Net;
 using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.Entities;
 using ChameleonPhotoredactor.Models.ViewModels.Account;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using BCrypt.Net;
 
 namespace ChameleonPhotoredactor.Controllers
 {
@@ -15,6 +17,13 @@ namespace ChameleonPhotoredactor.Controllers
         public IActionResult Profile()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Signout ()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
