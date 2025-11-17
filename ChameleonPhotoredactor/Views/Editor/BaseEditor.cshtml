@@ -29,6 +29,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
+        const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+        const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const image = document.getElementById("editable_image");
         const exposureSlider = document.getElementById("exposure_slider");
         const contrastSlider = document.getElementById("contrast_slider");
@@ -52,6 +54,10 @@
 
 
         if (image) {
+
+            exposureSlider.value = initialExposure;
+            contrastSlider.value = initialContrast;
+            applyFilters();
 
             function applyFilters() {
                 const exposure = 1 + (exposureSlider.value / 100);
