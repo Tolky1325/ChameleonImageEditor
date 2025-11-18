@@ -61,8 +61,8 @@
             </div>
 
             <div class="info-block">
-                <p>Exposure: +40</p>
-                <p>Contrast: +30</p>
+                <p>Exposure: @(ViewBag.Exposure > 0 ? "+" : "")@(ViewBag.Exposure ?? 0)</p>
+                <p>Contrast: @(ViewBag.Contrast > 0 ? "+" : "")@(ViewBag.Contrast ?? 0)</p>
             </div>
 
             <button id="export-download-trigger" class="button_export" type="button">
