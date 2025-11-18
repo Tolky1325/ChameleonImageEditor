@@ -29,32 +29,32 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
+        // 1. Отримуємо збережені значення (якщо ми їх передали з контролера)
         const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+
         const image = document.getElementById("editable_image");
         const exposureSlider = document.getElementById("exposure_slider");
         const contrastSlider = document.getElementById("contrast_slider");
         const exposureValue = document.getElementById("exposure_value");
         const contrastValue = document.getElementById("contrast_value");
+
         const exportLink = document.getElementById("export-nav-link");
-        const imageEditId = @(ViewBag.ImageEditId ?? 0); // Get ID from
+        const imageEditId = @(ViewBag.ImageEditId ?? 0);
 
         let saveTimer = null;
         const saveDelay = 2000;
-        //                 ^^2 seconds (2000 milliseconds)
 
         if (exportLink && imageEditId > 0) {
-          
+            
             const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
             exportLink.href = exportUrl;
         } else if (exportLink) {
-           
             exportLink.style.display = 'none';
         }
 
-
         if (image) {
-
+            
             exposureSlider.value = initialExposure;
             contrastSlider.value = initialContrast;
             applyFilters();
@@ -73,12 +73,12 @@
                 console.log("Saving edits...");
 
                 const editData = {
-                ImageEditId: @(ViewBag.ImageEditId ?? 0), 
-                Exposure: parseFloat(exposureSlider.value),
-                Contrast: parseFloat(contrastSlider.value)
+                    ImageEditId: imageEditId,
+                    Exposure: parseFloat(exposureSlider.value),
+                    Contrast: parseFloat(contrastSlider.value)
                 };
 
-                fetch('@Url.Action("SaveEdits", "Editor")', {
+                return fetch('@Url.Action("SaveEdits", "Editor")', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -102,12 +102,29 @@
             function onSliderInput() {
                 applyFilters();
                 clearTimeout(saveTimer);
-
+                
                 saveTimer = setTimeout(autoSaveEdits, saveDelay);
             }
 
             exposureSlider.addEventListener("input", onSliderInput);
             contrastSlider.addEventListener("input", onSliderInput);
+
+            if (exportLink) {
+                exportLink.addEventListener('click', function(e) {
+                    
+                    e.preventDefault();
+
+                    clearTimeout(saveTimer);
+
+                    console.log("Forcing save before export...");
+                    const targetUrl = this.href;
+
+                    autoSaveEdits().finally(() => {
+                        
+                        window.location.href = targetUrl;
+                    });
+                });
+            }
         }
 
         function getAntiCSRFToken() {
