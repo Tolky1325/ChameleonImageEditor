@@ -34,6 +34,7 @@ public class ExportController : Controller
 
         ViewBag.Exposure = imageEdit.ExposureChange;
         ViewBag.Contrast = imageEdit.ContrastChange;
+        ViewBag.ImageEditId = id;
 
         return View();
     }
