@@ -91,12 +91,12 @@
     transform: rotate(90deg) scale(1.1);
 }
 
-.editor-nav a.active .icon-container {
-    background-color: #FFDC89;
-}
-
 .editor-nav a:hover .icon-container {
     background-color: #FFF5C5;
+}
+
+.editor-nav a.active .icon-container {
+    background-color: #FFDC89;
 }
 
 .editor-nav a:hover .material-symbols-outlined {

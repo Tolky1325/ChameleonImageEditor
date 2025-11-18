@@ -60,6 +60,6 @@ public class LeaderboardController : Controller
         }
 
         // 5. Повертаємо Топ-5
-        return View(allUsersRanking.Take(5).ToList());
+        return View(allUsersRanking.Take(100).ToList());
     }
 }
