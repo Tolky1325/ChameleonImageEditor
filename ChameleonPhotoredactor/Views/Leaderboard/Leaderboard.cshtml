@@ -18,6 +18,10 @@
             <h3>Community Leaderboard</h3>
         </div>
 
+        <div class="search-container">
+            <input type="text" id="leaderboardSearch" placeholder="Search username..." />
+        </div>
+
         <div class="filter_stats">
             <button class="sorting_parameter sort_imports">Imports</button>
             <button class="sorting_parameter sort_edits">Edits</button>
@@ -34,18 +38,20 @@
         {
             @foreach (var item in Model)
             {
-                // Клас 'rank-one' можна використовувати для спеціальної стилізації першого місця
                 <div class="ranking-row @(item.Rank == 1 ? "rank-one" : "")">
 
-                    <div class="rank-col">
+                    <div class="rank-col @(item.Rank <= 3 ? "top-rank" : "")">
                         <span class="rank-number">@item.Rank</span>
                         @if (item.Rank == 1)
                         {
-                            <span class="material-symbols-outlined crown-icon">military_tech</span>
+                            <span class="material-symbols-outlined crown-icon">crown</span>
                         }
                     </div>
 
-                    <span class="material-symbols-outlined user-icon">person</span>
+                    <div class="user-icon_container">
+
+                        <span class="material-symbols-outlined user-icon">person</span>
+                    </div>
 
                     <div class="nickname-col">
                         <span class="nickname-text">@item.Username</span>
@@ -71,7 +77,9 @@
         }
         else
         {
-            <p style="text-align: center; padding: 20px;">Наразі лідерборд порожній. Будьте першим!</p>
+            <p style="text-align: center; padding: 20px;">
+                The leaderboard is currently empty. Be the first!
+            </p>
         }
     </div>
 
@@ -98,7 +106,38 @@
     }
 
     <div class="user_stats">
+        @if (currentUser != null)
+        {
+            <div class="ranking-row your-ranking-row">
+                <div class="rank-col @(currentUser.Rank <= 3 ? "top-rank" : "")">
+                    <span class="rank-number">@currentUser.Rank</span>
+                    @if (currentUser.Rank == 1)
+                    {
+                        <span class="material-symbols-outlined crown-icon">crown</span>
+                    }
+                </div>
 
+                <div class="user-icon_container">
+                    <span class="material-symbols-outlined user-icon">person</span>
+                </div>
+
+                <div class="nickname-col">
+                    <span class="nickname-text">@currentUser.Username</span>
+                </div>
+
+                <div class="stats-col">
+                    <div class="iports_stat-value">
+                        <span class="stat-value">@currentUser.Imports</span>
+                    </div>
+                    <div class="edits_stat-value">
+                        <span class="stat-value">@currentUser.Edits</span>
+                    </div>
+                    <div class="exports_stat-value">
+                        <span class="stat-value">@currentUser.Exported</span>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
 </div>
