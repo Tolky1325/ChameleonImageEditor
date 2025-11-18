@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace ChameleonPhotoredactor.Controllers.Account
 {
@@ -26,16 +29,34 @@ namespace ChameleonPhotoredactor.Controllers.Account
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 var user = await _context.Users
                     .FirstOrDefaultAsync(u => u.userName == model.Username);
 
                 if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.userPassword))
                 {
-                    //here is gona be logic for redirecting to registered user page
-                    //maybe creating user session idk 
-                    //for timebeing redirect to homepage
+                    var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
+                new Claim(ClaimTypes.Name, user.userName),
+                new Claim("DisplayName", user.userDisplayName)
+            };
+
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    };
+
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProperties);
+
+
                     return RedirectToAction("Library", "Library");
                 }
 

@@ -10,7 +10,7 @@
         </div>
         <div class="button-import-container">
 
-            <form asp-controller="Editor" asp-action="BaseEditor" method="post" enctype="multipart/form-data">
+            <form asp-controller="Library" asp-action="ImportImage" method="post" enctype="multipart/form-data">
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
                 <button class="library_button-import import-btn" type="button" id="uploadBtn">
@@ -24,3 +24,6 @@
     </div>
 
 </div>
+@section Scripts {
+    <script src="~/js/Home.js"></script>
+}
