@@ -1,11 +1,12 @@
-.info-block {
-    display: flex;
+.info-block {  
     background: #fff;
     width: 180px;
     border-radius: 10px;
     padding: 14px 18px;
     margin-top: 12px;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;

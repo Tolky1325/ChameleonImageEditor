@@ -213,3 +213,7 @@ body {
     cursor: pointer;
     transition: background 0.2s;
 }
+
+.library_button:hover {
+    background-color: #ff6a00;
+}
