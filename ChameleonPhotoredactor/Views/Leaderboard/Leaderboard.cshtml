@@ -7,6 +7,29 @@
     var currentUser = ViewBag.CurrentUserRanking as ChameleonPhotoredactor.Models.ViewModels.Leaderboard.LeaderboardViewModel;
 }
 
+@{
+    string currentSort = ViewBag.Sort as string ?? "";
+    string currentDir = ViewBag.Direction as string ?? "desc";
+
+    string NextDirection(string col)
+    {
+        if (currentSort == col)
+            return currentDir == "asc" ? "desc" : "asc";
+        return "desc";
+    }
+
+    string SortIcon(string col)
+    {
+        if (currentSort != col)
+            return "";
+
+        return currentDir == "asc"
+            ? "<span class=\"material-symbols-outlined\">arrow_drop_up</span>"
+            : "<span class=\"material-symbols-outlined\">arrow_drop_down</span>";
+    }
+}
+
+
 <div class="content-container_stats">
 
     <div class="bottom_stats">
@@ -23,13 +46,24 @@
         </div>
 
         <div class="filter_stats">
-            <button class="sorting_parameter sort_imports">Imports</button>
-            <button class="sorting_parameter sort_edits">Edits</button>
-            <button class="sorting_parameter sort_exported">
-                Exported
-                <span class="material-symbols-outlined">arrow_drop_up</span>
-            </button>
+
+            <a class="sorting_parameter @(currentSort == "imports" ? "active" : "")"
+               href="/Leaderboard/Leaderboard?sort=imports&direction=@NextDirection("imports")">
+                Imports @Html.Raw(SortIcon("imports"))
+            </a>
+
+            <a class="sorting_parameter @(currentSort == "edits" ? "active" : "")"
+               href="/Leaderboard/Leaderboard?sort=edits&direction=@NextDirection("edits")">
+                Edits @Html.Raw(SortIcon("edits"))
+            </a>
+
+            <a class="sorting_parameter @(currentSort == "exported" ? "active" : "")"
+               href="/Leaderboard/Leaderboard?sort=exported&direction=@NextDirection("exported")">
+                Exported @Html.Raw(SortIcon("exported"))
+            </a>
+
         </div>
+
 
     </div>
 
@@ -105,39 +139,46 @@
         </div>
     }
 
-    <div class="user_stats">
-        @if (currentUser != null)
-        {
-            <div class="ranking-row your-ranking-row">
-                <div class="rank-col @(currentUser.Rank <= 3 ? "top-rank" : "")">
-                    <span class="rank-number">@currentUser.Rank</span>
-                    @if (currentUser.Rank == 1)
-                    {
-                        <span class="material-symbols-outlined crown-icon">crown</span>
-                    }
-                </div>
-
-                <div class="user-icon_container">
-                    <span class="material-symbols-outlined user-icon">person</span>
-                </div>
-
-                <div class="nickname-col">
-                    <span class="nickname-text">@currentUser.Username</span>
-                </div>
-
-                <div class="stats-col">
-                    <div class="iports_stat-value">
-                        <span class="stat-value">@currentUser.Imports</span>
+    <div class="user_stats_container">
+        <div class="lable_user_stats">
+            <h4>Your ranking</h4>
+        </div>
+        <div class="user_stats">
+            @if (currentUser != null)
+            {
+                <div class="ranking-row your-ranking-row">
+                    <div class="rank-col @(currentUser.Rank <= 3 ? "top-rank" : "")">
+                        <span class="rank-number">@currentUser.Rank</span>
+                        @if (currentUser.Rank == 1)
+                        {
+                            <span class="material-symbols-outlined crown-icon">crown</span>
+                        }
                     </div>
-                    <div class="edits_stat-value">
-                        <span class="stat-value">@currentUser.Edits</span>
+
+                    <div class="user-icon_container">
+                        <span class="material-symbols-outlined user-icon">person</span>
                     </div>
-                    <div class="exports_stat-value">
-                        <span class="stat-value">@currentUser.Exported</span>
+
+                    <div class="nickname-col your_nickname-col">
+                        <span class="nickname-text">@currentUser.Username</span>
+                    </div>
+
+                    <div class="stats-col">
+                        <div class="iports_stat-value">
+                            <span class="stat-value">@currentUser.Imports</span>
+                        </div>
+                        <div class="edits_stat-value">
+                            <span class="stat-value">@currentUser.Edits</span>
+                        </div>
+                        <div class="exports_stat-value">
+                            <span class="stat-value">@currentUser.Exported</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
+
+    
 
 </div>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ChameleonPhotoredactor.Data;
-// ПЕРЕВІРКА: Припускаємо, що це правильний простір імен для ВАШОЇ ViewModel
 using ChameleonPhotoredactor.Models.ViewModels.Leaderboard;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,49 +16,66 @@ public class LeaderboardController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Leaderboard()
+    public async Task<IActionResult> Leaderboard(string sort = "exported", string direction = "desc")
     {
-        // 1. Створення LINQ запиту для отримання, сортування та проектування даних
-        var usersDataQuery = _context.Users
+        // 1. Базовий вибір користувачів
+        var usersQuery = _context.Users
             .Include(u => u.UserStats)
             .Where(u => u.UserStats != null &&
-                        (u.UserStats.importCount > 0 || u.UserStats.editCount > 0 || u.UserStats.exportCount > 0))
-            .OrderByDescending(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
+                        (u.UserStats.importCount > 0 ||
+                         u.UserStats.editCount > 0 ||
+                         u.UserStats.exportCount > 0));
 
-            // 2. Проектуємо в LeaderboardViewModel
-            .Select(u => new LeaderboardViewModel // <--- ВИКОРИСТОВУЙТЕ НАЗВУ ВАШОГО VIEWMODEL
+        // 2. Сортування з урахуванням напрямку
+        usersQuery = sort switch
+        {
+            "imports" => direction == "asc"
+                ? usersQuery.OrderBy(u => u.UserStats.importCount)
+                : usersQuery.OrderByDescending(u => u.UserStats.importCount),
+
+            "edits" => direction == "asc"
+                ? usersQuery.OrderBy(u => u.UserStats.editCount)
+                : usersQuery.OrderByDescending(u => u.UserStats.editCount),
+
+            "exported" => direction == "asc"
+                ? usersQuery.OrderBy(u => u.UserStats.exportCount)
+                : usersQuery.OrderByDescending(u => u.UserStats.exportCount),
+
+            _ => direction == "asc"
+                ? usersQuery.OrderBy(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
+                : usersQuery.OrderByDescending(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
+        };
+
+        // 3. Мапінг у ViewModel
+        var usersList = await usersQuery
+            .Select(u => new LeaderboardViewModel
             {
-                // ВИПРАВЛЕНО: Використовуємо u.userId
                 UserId = u.userId,
-
-                // ВИПРАВЛЕНО: Використовуємо u.userDisplayName (або u.userName) замість u.Username
                 Username = u.userDisplayName,
-
                 Imports = u.UserStats.importCount,
                 Edits = u.UserStats.editCount,
                 Exported = u.UserStats.exportCount,
                 Rank = 0
-            });
+            })
+            .ToListAsync();
 
-        // Виконуємо запит
-        var allUsersRanking = await usersDataQuery.ToListAsync();
+        // 4. Перерахунок Rank
+        for (int i = 0; i < usersList.Count; i++)
+            usersList[i].Rank = i + 1;
 
-        // 3. Локальне обчислення рангу
-        for (int i = 0; i < allUsersRanking.Count; i++)
-        {
-            allUsersRanking[i].Rank = i + 1;
-        }
-
-        // 4. Обробка "Вашого рейтингу"
+        // 5. Поточний користувач
         var currentUserIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
         if (int.TryParse(currentUserIdString, out int currentUserId))
         {
-            var currentUserRanking = allUsersRanking.FirstOrDefault(u => u.UserId == currentUserId);
-            ViewBag.CurrentUserRanking = currentUserRanking;
+            ViewBag.CurrentUserRanking =
+                usersList.FirstOrDefault(u => u.UserId == currentUserId);
         }
 
-        // 5. Повертаємо Топ-5
-        return View(allUsersRanking.Take(100).ToList());
+        // 6. Передаємо sort та direction у View
+        ViewBag.Sort = sort;
+        ViewBag.Direction = direction;
+
+        // 7. Повертаємо топ-25
+        return View(usersList.Take(25).ToList());
     }
 }
