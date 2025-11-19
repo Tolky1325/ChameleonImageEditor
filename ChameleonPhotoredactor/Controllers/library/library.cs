@@ -1,11 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System.IO;
-using System.Security.Claims;
 using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization; 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 [Authorize] 
 public class LibraryController : Controller
@@ -45,6 +46,16 @@ public class LibraryController : Controller
             );
 
             _context.Images.Add(image);
+            await _context.SaveChangesAsync();
+
+            var userStats = await _context.UserStats
+                                          .FirstOrDefaultAsync(s => s.UserId == userId);
+
+            if (userStats != null)
+            {
+                userStats.importCount += 1; 
+            }
+
             await _context.SaveChangesAsync();
         }
         else

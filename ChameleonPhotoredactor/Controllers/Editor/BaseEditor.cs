@@ -103,6 +103,7 @@ public class EditorController : Controller
             );
             _context.UserStats.Add(userStats);
             await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
 
             var claims = new List<Claim>
