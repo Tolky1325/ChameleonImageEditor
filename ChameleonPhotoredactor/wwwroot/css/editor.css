@@ -69,7 +69,18 @@
         transition: 0.3s;
     }
 
-
+.info-block {
+    display: flex;
+    background: #fff;
+    width: 180px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
 
 .icon-container {
     background-color: transparent;
@@ -177,6 +188,11 @@
     color: #241A0A;
 }
 
+.label-slider_container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .slider-group {
     width: 100%;
     display: flex;
@@ -184,11 +200,11 @@
     margin-bottom: 18px;
 }
 
-    .slider-group label {
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+.slider-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
     .slider-group input[type="range"] {
         width: 100%;

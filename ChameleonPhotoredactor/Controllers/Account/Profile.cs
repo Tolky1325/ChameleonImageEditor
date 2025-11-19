@@ -22,7 +22,9 @@ namespace ChameleonPhotoredactor.Controllers
         [HttpPost]
         public async Task<IActionResult> Signout ()
         {
-             return RedirectToAction("Index", "Home");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
