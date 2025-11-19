@@ -5,6 +5,8 @@ using ChameleonPhotoredactor.Models.ViewModels.Leaderboard;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Collections.Generic;
+using System;
 
 public class LeaderboardController : Controller
 {
@@ -15,10 +17,8 @@ public class LeaderboardController : Controller
         _context = context;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Leaderboard(string sort = "exported", string direction = "desc")
+    private async Task<List<LeaderboardViewModel>> GetRankedUsersAsync(string sort, string direction)
     {
-        // 1. Базовий вибір користувачів
         var usersQuery = _context.Users
             .Include(u => u.UserStats)
             .Where(u => u.UserStats != null &&
@@ -26,7 +26,6 @@ public class LeaderboardController : Controller
                          u.UserStats.editCount > 0 ||
                          u.UserStats.exportCount > 0));
 
-        // 2. Сортування з урахуванням напрямку
         usersQuery = sort switch
         {
             "imports" => direction == "asc"
@@ -46,7 +45,6 @@ public class LeaderboardController : Controller
                 : usersQuery.OrderByDescending(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
         };
 
-        // 3. Мапінг у ViewModel
         var usersList = await usersQuery
             .Select(u => new LeaderboardViewModel
             {
@@ -59,23 +57,48 @@ public class LeaderboardController : Controller
             })
             .ToListAsync();
 
-        // 4. Перерахунок Rank
         for (int i = 0; i < usersList.Count; i++)
             usersList[i].Rank = i + 1;
 
-        // 5. Поточний користувач
+        return usersList;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Leaderboard(string sort = "exported", string direction = "desc")
+    {
+        var usersList = await GetRankedUsersAsync(sort, direction);
+
         var currentUserIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(currentUserIdString, out int currentUserId))
         {
-            ViewBag.CurrentUserRanking =
-                usersList.FirstOrDefault(u => u.UserId == currentUserId);
+            ViewBag.CurrentUserRanking = usersList.FirstOrDefault(u => u.UserId == currentUserId);
         }
 
-        // 6. Передаємо sort та direction у View
         ViewBag.Sort = sort;
         ViewBag.Direction = direction;
 
-        // 7. Повертаємо топ-25
         return View(usersList.Take(25).ToList());
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Search(string query, string sort = "exported", string direction = "desc")
+    {
+        var allUsers = await GetRankedUsersAsync(sort, direction);
+
+        List<LeaderboardViewModel> filteredUsers;
+
+        if (!string.IsNullOrWhiteSpace(query))
+        {
+            filteredUsers = allUsers
+                .Where(u => u.Username != null &&
+                            u.Username.Contains(query, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        else
+        {
+            filteredUsers = allUsers.Take(25).ToList();
+        }
+
+        return Json(filteredUsers);
     }
 }
