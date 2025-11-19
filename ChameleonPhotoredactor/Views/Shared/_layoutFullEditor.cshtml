@@ -26,13 +26,22 @@
                 Back
             </a>
 
-            <a asp-controller="Editor" asp-action="BaseEditor"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
+            <a asp-controller="FullEditor" asp-action="FullEditor"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullEditor" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "FullEditor" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
                 </div>
                 Edit
+            </a>
+
+            <a asp-controller="CropImage" asp-action="Crop"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "CropImage" &&
+                                   ViewContext.RouteData.Values["action"]?.ToString() == "Crop" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">crop</span>
+                </div>
+                Crop
             </a>
 
             <a id="export-nav-link" asp-controller="Export" asp-action="Export"
@@ -69,7 +78,6 @@
         </main>
 
         <div class="editor-right-panel">
-
             <div class="histogram">
                 <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
                 <p>Histogram</p>
@@ -93,6 +101,16 @@
 
                     <input type="range" min="-100" max="100" value="0" class="slider" id="contrast_slider">
                 </div>
+
+                <div class="slider-group">
+                    <div class="label_slider_container">
+                        <label>Saturation</label>
+                        <span id="saturation_value">0</span>
+                    </div>
+
+                    <input type="range" min="-100" max="100" value="0" class="slider" id="saturation_slider">
+                </div>
+            </div>
             </div>
 
         </div>
