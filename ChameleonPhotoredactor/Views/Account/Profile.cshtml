@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ChameleonPhotoredactor.Models.Entities.User
+
+@{
     ViewData["Title"] = "Profile Page";
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
@@ -18,57 +20,53 @@
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
                 <button class="profile_button-sign_out" type="submit" id="uploadBtn">
-
                     <span class="text-import_a">Sign Out</span>
                     <span class="material-symbols-outlined icon_upload">logout</span>
                 </button>
             </form>
         </div>
-
     </div>
 
     <div class="profil_information">
         <div class="profile-info_container">
             <div class="avatar-username_container">
                 <div class="avatar-container">
-                    <span class="material-symbols-outlined icon_upload" style="font-size: 50px;">person</span>
+                    @if (Model.userProfilePic != null && Model.userProfilePic.Length > 0)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.userProfilePic)" alt="Avatar" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" />
+                    }
+                    else
+                    {
+                        <span class="material-symbols-outlined icon_upload" style="font-size: 50px;">person</span>
+                    }
                 </div>
 
                 <div class="profile_container username-info_container">
-                    <div class="label">
-                        Username
-                    </div>
-                    <div class="user_info">xxx</div>
+                    <div class="label">Username</div>
+                    <div class="user_info">@Model.userName</div>
                 </div>
             </div>
 
-
             <div class="profile_container displae-name-info_container">
-                <div class="label">
-                    Display Name
-                </div>
-                <div class="user_info">xxx</div>
+                <div class="label">Display Name</div>
+                <div class="user_info">@Model.userDisplayName</div>
             </div>
 
             <div class="profile_container email-info_container">
-                <div class="label">
-                    Email
-                </div>
-                <div class="user_info">xxx</div>
+                <div class="label">Email</div>
+                <div class="user_info">@Model.userEmail</div>
             </div>
 
             <div class="profile_container member-since-info_container">
-                <div class="label">
-                    Member since
-                </div>
-                <div class="user_info">xxx</div>
+                <div class="label">Member since</div>
+                <div class="user_info">@Model.userCreationDate.ToString("d")</div>
             </div>
 
             <div class="btn_edit-profile_container">
-                <button class="btn_edit-profile">
+                <a href="@Url.Action("EditProfile", "User")" class="btn_edit-profile" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">
                     Edit Profile
-                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">edit</span>
-                </button>
+                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px; margin-left: 5px;">edit</span>
+                </a>
             </div>
         </div>
 
@@ -78,23 +76,20 @@
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">upload</span>
                 <div class="metric_label">Imported</div>
-                <div class="metric_value">0</div> <!-- Model.ImportCount -->
+                <div class="metric_value">@(Model.UserStats?.importCount ?? 0)</div>
             </div>
 
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
                 <div class="metric_label">Edited</div>
-                <div class="metric_value">0</div> <!-- Model.EditCount -->
+                <div class="metric_value">@(Model.UserStats?.editCount ?? 0)</div>
             </div>
 
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">download</span>
                 <div class="metric_label">Exported</div>
-                <div class="metric_value">0</div> <!-- Model.ExportCount -->
+                <div class="metric_value">@(Model.UserStats?.exportCount ?? 0)</div>
             </div>
         </div>
-
     </div>
-    
-
 </div>
