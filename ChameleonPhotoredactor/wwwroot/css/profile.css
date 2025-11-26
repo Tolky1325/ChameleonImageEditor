@@ -248,19 +248,24 @@ body {
     justify-content: flex-end;
 }
 
-.btn_edit-profile {
+a.btn_edit-profile {
     display: flex;
+    height: 30px;
     align-items: center;
     justify-content: center;
+    background-color: #FFBA38;
     gap: 10px;
     border-radius: 8px;
     font-family: 'Nunito', sans-serif;
+    color: #241A0A;
+    text-decoration: none;
     font-size: 16px;
     font-weight: bold;
+    padding: 10px 20px;
     transition: background 0.3s;
 }
 
-    .btn_edit-profile:hover {
+    a.btn_edit-profile:hover {
         background-color: #ff6a00;
     }
 

@@ -1,4 +1,6 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Editor Page";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
@@ -8,6 +10,7 @@
         <div class="bottom_info-container">
             <h4>Note: For editing new photo you need import it first</h4>
         </div>
+
         <div class="button-import-container">
 
             <form asp-controller="Library" asp-action="ImportImage" method="post" enctype="multipart/form-data">
@@ -21,9 +24,13 @@
                 </button>
             </form>
         </div>
-    </div>
 
+        <div class="photo-grid_container">
+           
+        </div>
+    </div>
 </div>
+
 @section Scripts {
     <script src="~/js/Home.js"></script>
 }
