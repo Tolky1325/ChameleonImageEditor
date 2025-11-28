@@ -67,7 +67,7 @@ body {
     background-color: #FFF5C5;
 }
 
-.guest-nav a:not(.active):hover .material-symbols-outlined {
+.guest-nav a:hover .material-symbols-outlined {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
@@ -309,4 +309,13 @@ a.btn_edit-profile {
 
 .metric_value {
     font-size: 16px;
+}
+
+.icon_upload {
+    transition: transform 0.3s ease;
+}
+
+.profile_button-sign_out:hover .icon_upload,
+.btn_edit-profile:hover .icon_upload {
+    transform: scale(1.1);
 }

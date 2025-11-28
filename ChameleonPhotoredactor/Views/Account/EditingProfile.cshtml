@@ -29,7 +29,6 @@
 
     <div class="profil_information">
         <div class="profile-info_container">
-
             <div class="avatar-username_container">
                 <div class="avatar-container">
                     @if (Model.userProfilePic != null && Model.userProfilePic.Length > 0)
@@ -50,14 +49,12 @@
 
             <div class="profile_container displae-name-info_container">
                 <div class="label">Display Name</div>
-                <div class="user_info user_info-view" id="displayNameView">@Model.userDisplayName</div>
-                <input type="text" class="user_info user_info-edit" id="displayNameEdit" value="@Model.userDisplayName" style="display:none;" />
+                <div class="user_info">@Model.userDisplayName</div>
             </div>
 
             <div class="profile_container email-info_container">
                 <div class="label">Email</div>
-                <div class="user_info user_info-view" id="emailView">@Model.userEmail</div>
-                <input type="email" class="user_info user_info-edit" id="emailEdit" value="@Model.userEmail" style="display:none;" />
+                <div class="user_info">@Model.userEmail</div>
             </div>
 
             <div class="profile_container member-since-info_container">
@@ -66,17 +63,9 @@
             </div>
 
             <div class="btn_edit-profile_container">
-                <a class="btn_edit-profile" id="editProfileBtn">
+                <a class="btn_edit-profile">
                     Edit Profile
                     <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">edit</span>
-                </a>
-                <a class="btn_edit-profile" id="saveProfileBtn" style="display:none; margin-right: 10px;">
-                    Save Changes
-                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">save</span>
-                </a>
-                <a class="btn_edit-profile" id="cancelEditBtn" style="display:none;">
-                    Cancel
-                    <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">close</span>
                 </a>
             </div>
         </div>
@@ -101,13 +90,6 @@
                 <div class="metric_label">Exported</div>
                 <div class="metric_value">@(Model.UserStats?.exportCount ?? 0)</div>
             </div>
-
-            <div class="metric_block">
-                <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">delete</span>
-                <div class="metric_label">Delete Account</div>
-            </div>
-
-            
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
-using ChameleonPhotoredactor.Data;
+﻿using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.Entities;
-using ChameleonPhotoredactor.Models.ViewModels.Account;
+using ChameleonPhotoredactor.Models.ViewModels.Account; // Переконайтеся, що тут є UpdateProfileViewModel
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.Collections.Generic;
 using System;
+using System.Linq; // Додано для використання методу .FirstOrDefault() для помилок
 
 namespace ChameleonPhotoredactor.Controllers.Account
 {
@@ -22,7 +23,10 @@ namespace ChameleonPhotoredactor.Controllers.Account
             _context = context;
         }
 
-        // === ????? ===
+        // ===================================
+        //           АУТЕНТИФІКАЦІЯ
+        // ===================================
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -42,8 +46,9 @@ namespace ChameleonPhotoredactor.Controllers.Account
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
-                        new Claim(ClaimTypes.Name, user.userName),
-                        new Claim("DisplayName", user.userDisplayName)
+                        new Claim(ClaimTypes.Name, user.userName), // Використовується для User.Identity.Name
+                        new Claim("DisplayName", user.userDisplayName),
+                        new Claim(ClaimTypes.Email, user.userEmail) // Додано Email claim
                     };
 
                     var claimsIdentity = new ClaimsIdentity(
@@ -69,7 +74,10 @@ namespace ChameleonPhotoredactor.Controllers.Account
             return View(model);
         }
 
-        // === ?????????? ===
+        // ===================================
+        //             РЕЄСТРАЦІЯ
+        // ===================================
+
         [HttpGet]
         public IActionResult Registration()
         {
@@ -107,7 +115,7 @@ namespace ChameleonPhotoredactor.Controllers.Account
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                // ????????? ?????????? ??? ?????? ???????????
+                // Створення статистики для нового користувача
                 var userStats = new UserStats(
                     user.userId,
                     0,
@@ -123,7 +131,10 @@ namespace ChameleonPhotoredactor.Controllers.Account
             return View(model);
         }
 
-        // === ??????? (?????? ? Profile.cs) ===
+        // ===================================
+        //             ПРОФІЛЬ
+        // ===================================
+
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
@@ -131,11 +142,12 @@ namespace ChameleonPhotoredactor.Controllers.Account
 
             if (string.IsNullOrEmpty(userName))
             {
+                // Якщо користувач не автентифікований
                 return RedirectToAction("Login");
             }
 
             var user = await _context.Users
-                .Include(u => u.UserStats) // ????????????? ??????????
+                .Include(u => u.UserStats)
                 .FirstOrDefaultAsync(u => u.userName == userName);
 
             if (user == null)
@@ -143,11 +155,93 @@ namespace ChameleonPhotoredactor.Controllers.Account
                 return NotFound("User not found");
             }
 
-            // ???? ?? View ??? ???? ??????????
             return View("~/Views/Account/Profile.cshtml", user);
         }
 
-        // === ????? (?????? ? Profile.cs) ===
+        // ===================================
+        //          РЕДАГУВАННЯ ПРОФІЛЮ (AJAX)
+        // ===================================
+
+        [HttpPost]
+        [Route("Account/UpdateProfile")] // Можна вказати явно, якщо потрібно
+        public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileViewModel model)
+        {
+            // 1. Перевірка автентифікації
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized(new { message = "User is not authenticated." });
+            }
+
+            // Отримання userName з поточних Claims
+            var userName = User.Identity.Name;
+
+            // 2. Отримання користувача з бази даних
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.userName == userName);
+
+            if (user == null)
+            {
+                return NotFound(new { message = "User not found in database." });
+            }
+
+            // 3. Валідація та оновлення Email
+            if (!string.IsNullOrWhiteSpace(model.NewEmail) && model.NewEmail != user.userEmail)
+            {
+                // Перевірка, чи новий email вже зайнятий
+                if (await _context.Users.AnyAsync(u => u.userEmail == model.NewEmail && u.userId != user.userId))
+                {
+                    return BadRequest(new { message = "This email is already in use by another account." });
+                }
+                user.userEmail = model.NewEmail;
+            }
+
+            // 4. Оновлення Display Name
+            if (!string.IsNullOrWhiteSpace(model.NewDisplayName))
+            {
+                user.userDisplayName = model.NewDisplayName;
+            }
+
+            // 5. Збереження змін у базі даних
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                return StatusCode(500, new { message = "Database error while saving changes." });
+            }
+
+            // 6. Оновлення аутентифікаційної кукі (Claims)
+            // Потрібно перегенерувати та переаутентифікувати користувача, 
+            // щоб зміни відображалися на сайті одразу (наприклад, у navbar).
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
+                new Claim(ClaimTypes.Name, user.userName),
+                new Claim("DisplayName", user.userDisplayName),
+                new Claim(ClaimTypes.Email, user.userEmail)
+            };
+
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+
+            // 7. Успішна відповідь
+            return Ok(new
+            {
+                message = "Profile updated successfully.",
+                newDisplayName = user.userDisplayName,
+                newEmail = user.userEmail
+            });
+        }
+
+        // ===================================
+        //              ВИХІД
+        // ===================================
+
         [HttpPost]
         public async Task<IActionResult> Signout()
         {
