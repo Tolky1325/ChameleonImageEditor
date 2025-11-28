@@ -284,6 +284,42 @@ a.btn_edit-profile {
     padding: 10px;
 }
 
+.delete_account_block {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF0000;
+    width: 100%;
+    height: 6%;
+    gap: 10px;
+    margin-top: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+    .delete_account_block:hover {
+        background-color: rgb(155, 0, 0, 0.9);
+        transition: background-color 0.3s ease;
+    }
+
+    .delete_account_block.show {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+.icon_delete_account {
+    color: white;
+}
+
 .metrics-info_container {
     display: flex;
     align-items: center;
@@ -301,6 +337,15 @@ a.btn_edit-profile {
     width: 100%;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
+}
+
+.delete_account_label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: white;
 }
 
 .discover_tune-rotate {

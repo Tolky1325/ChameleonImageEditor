@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editBtn = document.getElementById('editProfileBtn');
     const saveBtn = document.getElementById('saveProfileBtn');
     const cancelBtn = document.getElementById('cancelEditBtn');
+    const deleteBtn = document.getElementById('deleteAccount');
 
     // Поля для редагування (View vs Edit)
     const editableFields = [
@@ -22,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (editBtn) editBtn.style.display = isEditing ? 'none' : 'flex';
         if (saveBtn) saveBtn.style.display = isEditing ? 'flex' : 'none';
         if (cancelBtn) cancelBtn.style.display = isEditing ? 'flex' : 'none';
+
+        if (deleteBtn) {
+            if (isEditing) {
+                deleteBtn.classList.add('show');
+            } else {
+                deleteBtn.classList.remove('show');
+            }
+        }
 
         editableFields.forEach(field => {
             const viewElement = document.getElementById(field.viewId);

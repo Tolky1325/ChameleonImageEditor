@@ -102,10 +102,10 @@
                 <div class="metric_value">@(Model.UserStats?.exportCount ?? 0)</div>
             </div>
 
-            <div class="metric_block">
-                <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">delete</span>
-                <div class="metric_label">Delete Account</div>
-            </div>
+            <a class="delete_account_block" id="deleteAccount"">
+                <div class="delete_account_label">Delete Account</div>
+                <span class="material-symbols-outlined icon_delete_account" style="font-size: 24px;">delete</span>
+            </a>
 
             
         </div>
