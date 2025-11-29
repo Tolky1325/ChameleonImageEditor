@@ -31,7 +31,7 @@
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
                                     ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
                 <div class="icon-container">
-                    <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
+                    <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px; ">discover_tune</span>
                 </div>
                 Edit
             </a>
@@ -71,9 +71,8 @@
 
         <div class="editor-right-panel">
 
-            <div class="histogram">
-                <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
-                <p>Histogram</p>
+            <div class="histogram-container">
+                <canvas class="histogram" id="histogramCanvas" width="256" height="100"></canvas>
             </div>
 
             <div class="info-block">
@@ -103,6 +102,8 @@
         </div>
 
     </div>
+    <script src="~/js/editor.js"></script>
+
 </body>
 </html>
 

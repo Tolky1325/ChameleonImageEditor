@@ -17,9 +17,9 @@
     <div class="editor-layout">
         <nav class="editor-nav">
 
-            <a asp-controller="Home" asp-action="Index"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+            <a asp-controller="Library" asp-action="Library"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Library" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "Library" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
                 </div>
@@ -78,9 +78,8 @@
         </main>
 
         <div class="editor-right-panel">
-            <div class="histogram">
-                <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
-                <p>Histogram</p>
+            <div class="histogram-container">
+                <canvas id="histogramCanvas" width="256" height="100"></canvas>
             </div>
 
             <div class="info-block">
