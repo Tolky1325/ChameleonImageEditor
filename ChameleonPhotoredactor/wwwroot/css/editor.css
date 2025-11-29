@@ -231,3 +231,23 @@
     .apply-btn:hover {
         background-color: #ffd77a;
     }
+
+    /*Crop css*/
+.size-input-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.size-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    background-color: #ffcc5c;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 2px 5px;
+}
