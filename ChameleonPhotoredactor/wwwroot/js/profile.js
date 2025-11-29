@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveBtn = document.getElementById('saveProfileBtn');
     const cancelBtn = document.getElementById('cancelEditBtn');
     const deleteBtn = document.getElementById('deleteAccount');
+    const cameraiconBtn = document.getElementById('cameraIconContainer');
 
     // Поля для редагування (View vs Edit)
     const editableFields = [
@@ -29,6 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 deleteBtn.classList.add('show');
             } else {
                 deleteBtn.classList.remove('show');
+            }
+        }
+
+        if (cameraiconBtn) {
+            if (isEditing) {
+                cameraiconBtn.classList.add('show');
+            } else {
+                cameraiconBtn.classList.remove('show');
             }
         }
 

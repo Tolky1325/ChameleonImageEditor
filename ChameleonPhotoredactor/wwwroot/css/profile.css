@@ -200,6 +200,39 @@ body {
     height: 80px;
     background-color: #FFDC89;
     border-radius: 28px;
+    position: relative;
+}
+
+.icon_camera_container {
+    display: flex;
+    align-items: center;
+    justify-content :center;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    bottom: -6px;
+    right: -6px;
+    background-color: #FFBA38;
+    border-radius: 40%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+    color: #241A0A;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+    .icon_camera_container.show {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+.icon_camera {
+    color: #241A0A;
 }
 
 .username-info_container {
@@ -356,11 +389,15 @@ a.btn_edit-profile {
     font-size: 16px;
 }
 
-.icon_upload {
+.icon_upload,
+.icon_camera,
+.icon_delete_account {
     transition: transform 0.3s ease;
 }
 
 .profile_button-sign_out:hover .icon_upload,
-.btn_edit-profile:hover .icon_upload {
+.btn_edit-profile:hover .icon_upload,
+.icon_camera_container:hover .icon_camera,
+.delete_account_block:hover .icon_delete_account {
     transform: scale(1.1);
 }
