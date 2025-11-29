@@ -67,7 +67,7 @@ body {
     background-color: #FFF5C5;
 }
 
-.guest-nav a:not(.active):hover .material-symbols-outlined {
+.guest-nav a:hover .material-symbols-outlined {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
@@ -200,6 +200,39 @@ body {
     height: 80px;
     background-color: #FFDC89;
     border-radius: 28px;
+    position: relative;
+}
+
+.icon_camera_container {
+    display: flex;
+    align-items: center;
+    justify-content :center;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    bottom: -6px;
+    right: -6px;
+    background-color: #FFBA38;
+    border-radius: 40%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+    color: #241A0A;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+    .icon_camera_container.show {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+.icon_camera {
+    color: #241A0A;
 }
 
 .username-info_container {
@@ -248,19 +281,24 @@ body {
     justify-content: flex-end;
 }
 
-.btn_edit-profile {
+a.btn_edit-profile {
     display: flex;
+    height: 30px;
     align-items: center;
     justify-content: center;
+    background-color: #FFBA38;
     gap: 10px;
     border-radius: 8px;
     font-family: 'Nunito', sans-serif;
+    color: #241A0A;
+    text-decoration: none;
     font-size: 16px;
     font-weight: bold;
+    padding: 10px 20px;
     transition: background 0.3s;
 }
 
-    .btn_edit-profile:hover {
+    a.btn_edit-profile:hover {
         background-color: #ff6a00;
     }
 
@@ -277,6 +315,42 @@ body {
     font-size: 14px;
     font-weight: bold;
     padding: 10px;
+}
+
+.delete_account_block {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF0000;
+    width: 100%;
+    height: 6%;
+    gap: 10px;
+    margin-top: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+    .delete_account_block:hover {
+        background-color: rgb(155, 0, 0, 0.9);
+        transition: background-color 0.3s ease;
+    }
+
+    .delete_account_block.show {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+.icon_delete_account {
+    color: white;
 }
 
 .metrics-info_container {
@@ -298,10 +372,32 @@ body {
     font-size: 16px;
 }
 
+.delete_account_label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
 .discover_tune-rotate {
     transform: rotate(90deg);
 }
 
 .metric_value {
     font-size: 16px;
+}
+
+.icon_upload,
+.icon_camera,
+.icon_delete_account {
+    transition: transform 0.3s ease;
+}
+
+.profile_button-sign_out:hover .icon_upload,
+.btn_edit-profile:hover .icon_upload,
+.icon_camera_container:hover .icon_camera,
+.delete_account_block:hover .icon_delete_account {
+    transform: scale(1.1);
 }

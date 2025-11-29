@@ -71,8 +71,8 @@ footer {
         background-color: #FFF5C5;
     }
 
-    .guest-nav a:not(active):hover .logo-img,
-    .guest-nav a:not(active):hover .material-symbols-outlined {
+    .guest-nav a:hover .logo-img,
+    .guest-nav a:hover .material-symbols-outlined {
         transform: scale(1.1);
         transition: transform 0.3s ease;
     }

@@ -41,10 +41,6 @@ public class LeaderboardController : Controller
             "exported" => direction == "asc"
                 ? usersQuery.OrderBy(u => u.UserStats.exportCount)
                 : usersQuery.OrderByDescending(u => u.UserStats.exportCount),
-
-            _ => direction == "asc"
-                ? usersQuery.OrderBy(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
-                : usersQuery.OrderByDescending(u => u.UserStats.importCount + u.UserStats.editCount + u.UserStats.exportCount)
         };
 
         var usersList = await usersQuery

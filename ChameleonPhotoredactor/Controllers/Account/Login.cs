@@ -1,6 +1,6 @@
-using ChameleonPhotoredactor.Data;
+﻿using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.Entities;
-using ChameleonPhotoredactor.Models.ViewModels.Account;
+using ChameleonPhotoredactor.Models.ViewModels.Account; // Переконайтеся, що тут є UpdateProfileViewModel
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace ChameleonPhotoredactor.Controllers.Account
 {
@@ -43,7 +44,8 @@ namespace ChameleonPhotoredactor.Controllers.Account
                         new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
                         new Claim(ClaimTypes.Name, user.userName),
                         new Claim("DisplayName", user.userDisplayName),
-                        new Claim(ClaimTypes.Role, "User")
+                        new Claim(ClaimTypes.Role, "User"),
+                        new Claim(ClaimTypes.Email, user.userEmail)
                     };
 
                     var claimsIdentity = new ClaimsIdentity(
@@ -122,7 +124,6 @@ namespace ChameleonPhotoredactor.Controllers.Account
             return View(model);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
@@ -135,6 +136,7 @@ namespace ChameleonPhotoredactor.Controllers.Account
 
             var user = await _context.Users
                 .Include(u => u.UserStats) 
+
                 .FirstOrDefaultAsync(u => u.userName == userName);
 
             if (user == null)
@@ -143,6 +145,72 @@ namespace ChameleonPhotoredactor.Controllers.Account
             }
 
             return View("~/Views/Account/Profile.cshtml", user);
+        }
+
+
+        [HttpPost]
+        [Route("Account/UpdateProfile")]
+        public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileViewModel model)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized(new { message = "User is not authenticated." });
+            }
+
+            var userName = User.Identity.Name;
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.userName == userName);
+
+            if (user == null)
+            {
+                return NotFound(new { message = "User not found in database." });
+            }
+
+            if (!string.IsNullOrWhiteSpace(model.NewEmail) && model.NewEmail != user.userEmail)
+            {
+                if (await _context.Users.AnyAsync(u => u.userEmail == model.NewEmail && u.userId != user.userId))
+                {
+                    return BadRequest(new { message = "This email is already in use by another account." });
+                }
+                user.userEmail = model.NewEmail;
+            }
+
+            if (!string.IsNullOrWhiteSpace(model.NewDisplayName))
+            {
+                user.userDisplayName = model.NewDisplayName;
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                return StatusCode(500, new { message = "Database error while saving changes." });
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
+                new Claim(ClaimTypes.Name, user.userName),
+                new Claim("DisplayName", user.userDisplayName),
+                new Claim(ClaimTypes.Email, user.userEmail)
+            };
+
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+
+            return Ok(new
+            {
+                message = "Profile updated successfully.",
+                newDisplayName = user.userDisplayName,
+                newEmail = user.userEmail
+            });
         }
 
         [HttpPost]
