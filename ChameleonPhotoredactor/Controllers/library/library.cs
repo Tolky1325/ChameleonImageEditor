@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-[Authorize] 
+[Authorize(Roles = "User")] 
 public class LibraryController : Controller
 {
     private readonly ChameleonDbContext _context;

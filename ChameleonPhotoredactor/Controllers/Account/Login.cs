@@ -22,7 +22,6 @@ namespace ChameleonPhotoredactor.Controllers.Account
             _context = context;
         }
 
-        // === ????? ===
         [HttpGet]
         public IActionResult Login()
         {
@@ -43,7 +42,8 @@ namespace ChameleonPhotoredactor.Controllers.Account
                     {
                         new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
                         new Claim(ClaimTypes.Name, user.userName),
-                        new Claim("DisplayName", user.userDisplayName)
+                        new Claim("DisplayName", user.userDisplayName),
+                        new Claim(ClaimTypes.Role, "User")
                     };
 
                     var claimsIdentity = new ClaimsIdentity(
@@ -69,7 +69,6 @@ namespace ChameleonPhotoredactor.Controllers.Account
             return View(model);
         }
 
-        // === ?????????? ===
         [HttpGet]
         public IActionResult Registration()
         {
@@ -101,13 +100,13 @@ namespace ChameleonPhotoredactor.Controllers.Account
                     hashedPassword,
                     null,
                     DateTime.UtcNow,
-                    false
+                    false,
+                    "User"
                 );
 
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                // ????????? ?????????? ??? ?????? ???????????
                 var userStats = new UserStats(
                     user.userId,
                     0,
@@ -123,7 +122,7 @@ namespace ChameleonPhotoredactor.Controllers.Account
             return View(model);
         }
 
-        // === ??????? (?????? ? Profile.cs) ===
+
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
@@ -135,7 +134,7 @@ namespace ChameleonPhotoredactor.Controllers.Account
             }
 
             var user = await _context.Users
-                .Include(u => u.UserStats) // ????????????? ??????????
+                .Include(u => u.UserStats) 
                 .FirstOrDefaultAsync(u => u.userName == userName);
 
             if (user == null)
@@ -143,11 +142,9 @@ namespace ChameleonPhotoredactor.Controllers.Account
                 return NotFound("User not found");
             }
 
-            // ???? ?? View ??? ???? ??????????
             return View("~/Views/Account/Profile.cshtml", user);
         }
 
-        // === ????? (?????? ? Profile.cs) ===
         [HttpPost]
         public async Task<IActionResult> Signout()
         {

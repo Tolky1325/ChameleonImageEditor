@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ChameleonPhotoredactor.Data;
+﻿using ChameleonPhotoredactor.Data;
 using ChameleonPhotoredactor.Models.ViewModels.Leaderboard;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
+[Authorize(Roles = "User")]
 public class LeaderboardController : Controller
 {
     private readonly ChameleonDbContext _context;

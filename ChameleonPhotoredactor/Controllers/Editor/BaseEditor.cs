@@ -88,7 +88,8 @@ public class EditorController : Controller
                 userPassword: hashedPassword,
                 userProfilePic: null,
                 userCreationDate: DateTime.UtcNow,
-                isTemp: true
+                isTemp: true,
+                role: "Guest"
             );
 
             _context.Users.Add(guestUser);
@@ -110,7 +111,8 @@ public class EditorController : Controller
             {
                 new Claim(ClaimTypes.NameIdentifier, guestUser.userId.ToString()),
                 new Claim(ClaimTypes.Name, guestUser.userName),
-                new Claim("DisplayName", guestUser.userDisplayName)
+                new Claim("DisplayName", guestUser.userDisplayName),
+                new Claim(ClaimTypes.Role, "Guest")
             };
 
             var claimsIdentity = new ClaimsIdentity(
