@@ -110,7 +110,7 @@
                 <div class="metric_value">@(Model.UserStats?.exportCount ?? 0)</div>
             </div>
 
-            <a class="delete_account_block" id="deleteAccount">
+            <a class="delete_account_block" id="deleteAccount" href="javascript:void(0);" onclick="confirmDelete()">
                 <div class="delete_account_label">Delete Account</div>
                 <span class="material-symbols-outlined icon_delete_account" style="font-size: 24px;">delete</span>
             </a>
@@ -118,4 +118,18 @@
             
         </div>
     </div>
+    <form id="deleteAccountForm" asp-controller="Account" asp-action="DeleteAccount" method="post" style="display:none;">
+        @Html.AntiForgeryToken()
+    </form>
 </div>
+@section Scripts {
+    <script>
+        function confirmDelete() {
+            if (confirm("Are you sure you want to delete your account? This action cannot be undone and you will lose all your saved images.")) {
+                document.getElementById('deleteAccountForm').submit();
+            }
+        }
+    </script>
+
+    <script src="~/js/profile.js"></script>
+}

@@ -1,26 +1,18 @@
-﻿// ===============================================
-// profile.js
-// Весь код обгорнуто у DOMContentLoaded
-// ===============================================
-
+﻿
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Отримання елементів DOM
-    // Ці змінні стануть доступними лише після того, як DOM буде готовий.
+
     const editBtn = document.getElementById('editProfileBtn');
     const saveBtn = document.getElementById('saveProfileBtn');
     const cancelBtn = document.getElementById('cancelEditBtn');
     const deleteBtn = document.getElementById('deleteAccount');
     const cameraiconBtn = document.getElementById('cameraIconContainer');
 
-    // Поля для редагування (View vs Edit)
     const editableFields = [
         { viewId: 'displayNameView', editId: 'displayNameEdit' },
         { viewId: 'emailView', editId: 'emailEdit' }
     ];
 
-    // 2. Функція для перемикання режиму
     function toggleEditMode(isEditing) {
-        // Запобігання помилці, якщо елемент не знайдено
         if (editBtn) editBtn.style.display = isEditing ? 'none' : 'flex';
         if (saveBtn) saveBtn.style.display = isEditing ? 'flex' : 'none';
         if (cancelBtn) cancelBtn.style.display = isEditing ? 'flex' : 'none';
@@ -47,24 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (viewElement && editElement) {
                 if (isEditing) {
-                    // Копіюємо поточне значення з режиму перегляду в поле вводу
                     editElement.value = viewElement.textContent.trim();
                 } else {
-                    // Оновлюємо значення відображення при виході з режиму (для Cancel)
-                    // При Save це вже буде оновлене значення
                     viewElement.textContent = editElement.value;
                 }
 
-                // Перемикаємо відображення
                 viewElement.style.display = isEditing ? 'none' : 'flex';
                 editElement.style.display = isEditing ? 'flex' : 'none';
             }
         });
     }
 
-    // 3. Обробники подій
-
-    // Додаємо обробники подій тільки якщо елементи були знайдені
     if (editBtn) {
         editBtn.addEventListener('click', () => {
             toggleEditMode(true);
@@ -73,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cancelBtn) {
         cancelBtn.addEventListener('click', () => {
-            // Скасовуємо редагування
             toggleEditMode(false);
         });
     }
@@ -100,11 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (response.ok) {
-                    // Оновлюємо відображувані значення на основі відповіді сервера
                     document.getElementById('displayNameView').textContent = result.newDisplayName;
                     document.getElementById('emailView').textContent = result.newEmail;
 
-                    // Виходимо з режиму редагування
                     toggleEditMode(false);
                     alert(result.message);
                 } else {
@@ -117,6 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Встановлюємо початковий режим (перегляд) після завантаження
     toggleEditMode(false);
 });
