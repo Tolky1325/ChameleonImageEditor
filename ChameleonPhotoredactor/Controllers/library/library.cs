@@ -19,9 +19,20 @@ public class LibraryController : Controller
     }
 
     [HttpGet]
-    public IActionResult Library()
+    public async Task<IActionResult> Library()
     {
-        return View();
+        var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (int.TryParse(userIdStr, out int userId))
+        {
+            var userImages = await _context.Images
+                                     .Where(i => i.UserId == userId)
+                                     .OrderByDescending(i => i.ImageUploadDate) 
+                                     .ToListAsync();
+            return View(userImages);
+        }
+
+        return View(new List<Image>());
     }
 
     [HttpPost]

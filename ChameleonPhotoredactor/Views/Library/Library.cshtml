@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ChameleonPhotoredactor.Models.Entities.Image>
 
 @{
     ViewData["Title"] = "Editor Page";
@@ -26,7 +26,23 @@
         </div>
 
         <div class="photo-grid_container">
-           
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var img in Model)
+                {
+                    var base64 = Convert.ToBase64String(img.ImageData);
+                    var imgSrc = String.Format("data:{0};base64,{1}", img.ImageType, base64);
+
+                    <div class="library-item" style="display: inline-block; margin: 10px; text-align: center;">
+                        <img src="@imgSrc" alt="@img.ImageName" style="max-width: 200px; max-height: 200px; border-radius: 8px; object-fit: cover;" />
+                        @* <p>@img.ImageName</p> *@
+                    </div>
+                }
+            }
+            else
+            {
+                <p style="color: #ccc; margin-top: 20px;">You haven't uploaded any photos yet.</p>
+            }
         </div>
     </div>
 </div>

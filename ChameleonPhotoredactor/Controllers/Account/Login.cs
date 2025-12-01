@@ -195,7 +195,8 @@ namespace ChameleonPhotoredactor.Controllers.Account
                 new Claim(ClaimTypes.NameIdentifier, user.userId.ToString()),
                 new Claim(ClaimTypes.Name, user.userName),
                 new Claim("DisplayName", user.userDisplayName),
-                new Claim(ClaimTypes.Email, user.userEmail)
+                new Claim(ClaimTypes.Email, user.userEmail),
+                new Claim(ClaimTypes.Role, "User")
             };
 
             var claimsIdentity = new ClaimsIdentity(
