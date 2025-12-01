@@ -29,7 +29,6 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-        // 1. Отримуємо збережені значення (якщо ми їх передали з контролера)
         const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
 
@@ -46,7 +45,6 @@
         const saveDelay = 2000;
 
         if (exportLink && imageEditId > 0) {
-            
             const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
             exportLink.href = exportUrl;
         } else if (exportLink) {
@@ -54,31 +52,41 @@
         }
 
         if (image) {
-            
             exposureSlider.value = initialExposure;
             contrastSlider.value = initialContrast;
-            applyFilters();
+
+            if (image.complete) {
+                applyFilters();
+            } else {
+                image.onload = function() { applyFilters(); };
+            }
 
             function applyFilters() {
+                
                 const exposure = 1 + (exposureSlider.value / 100);
                 const contrast = 1 + (contrastSlider.value / 100);
 
-                image.style.filter = `brightness(${exposure}) contrast(${contrast})`;
+                const filterString = `brightness(${exposure}) contrast(${contrast})`;
+
+                image.style.filter = filterString;
 
                 exposureValue.textContent = exposureSlider.value;
                 contrastValue.textContent = contrastSlider.value;
+
+                if (typeof drawHistogram === "function") {
+                    drawHistogram(image, filterString);
+                }
             }
 
             function autoSaveEdits() {
                 console.log("Saving edits...");
-
                 const editData = {
                     ImageEditId: imageEditId,
                     Exposure: parseFloat(exposureSlider.value),
                     Contrast: parseFloat(contrastSlider.value)
                 };
 
-                return fetch('@Url.Action("SaveEdits", "Editor")', {
+                fetch('@Url.Action("SaveEdits", "Editor")', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -89,21 +97,19 @@
                 .then(response => response.json())
                 .then(data => {
                     if(data.success) {
-                        console.log("Save successful:", data.message);
+                        console.log("Save successful");
                     } else {
                         console.error("Save failed:", data.message);
                     }
                 })
-                .catch(error => {
-                    console.error('Error during auto-save:', error);
-                });
+                .catch(error => console.error('Error:', error));
             }
 
             function onSliderInput() {
                 applyFilters();
+
                 clearTimeout(saveTimer);
-                
-                saveTimer = setTimeout(autoSaveEdits, saveDelay);
+                saveTimer = setTimeout(autoSaveEdits, saveDelay); 
             }
 
             exposureSlider.addEventListener("input", onSliderInput);
@@ -111,18 +117,12 @@
 
             if (exportLink) {
                 exportLink.addEventListener('click', function(e) {
-                    
                     e.preventDefault();
-
                     clearTimeout(saveTimer);
-
                     console.log("Forcing save before export...");
                     const targetUrl = this.href;
-
-                    autoSaveEdits().finally(() => {
-                        
-                        window.location.href = targetUrl;
-                    });
+                    autoSaveEdits();
+                    setTimeout(() => { window.location.href = targetUrl; }, 100);
                 });
             }
         }
