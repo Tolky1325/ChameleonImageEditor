@@ -40,9 +40,11 @@
 
         const exportLink = document.getElementById("export-nav-link");
         const imageEditId = @(ViewBag.ImageEditId ?? 0);
+        const compareBtn = document.getElementById("compareBtn");
 
         let saveTimer = null;
         const saveDelay = 2000;
+
 
         if (exportLink && imageEditId > 0) {
             const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
@@ -51,7 +53,7 @@
             exportLink.style.display = 'none';
         }
 
-        if (image) {
+        if (image && compareBtn) {
             exposureSlider.value = initialExposure;
             contrastSlider.value = initialContrast;
 
@@ -60,6 +62,21 @@
             } else {
                 image.onload = function() { applyFilters(); };
             }
+            function showOriginal() {
+                image.style.filter = "none";
+
+                if (typeof drawHistogram === "function") {
+                    drawHistogram(image, "");
+                }
+            }
+
+            function showEdited() {
+                applyFilters();
+            }
+
+            compareBtn.addEventListener("mousedown", showOriginal);
+            compareBtn.addEventListener("mouseup", showEdited);
+            compareBtn.addEventListener("mouseleave", showEdited); 
 
             function applyFilters() {
                 
