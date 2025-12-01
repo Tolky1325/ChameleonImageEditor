@@ -48,13 +48,11 @@
 
         <div class="toolbar_baseEditor">
             <div class="editor-nav_tools">
-                <a asp-controller="Account" asp-action="Login"
-                   class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
-                                                                      ViewContext.RouteData.Values["action"]?.ToString() == "Login" ? "active" : "")">
+                <a class="nav-link" style="cursor: default;">
                     <div class="icon-container2">
                         <span class="material-symbols-outlined" style="font-size: 24px;">search</span>
                     </div>
-                    0,00%
+                    <span id="zoomLevelDisplay">100%</span>
                 </a>
 
                 <a id="compareBtn" oncontextmenu="return false;" style="cursor: pointer;">

@@ -42,9 +42,52 @@
         const imageEditId = @(ViewBag.ImageEditId ?? 0);
         const compareBtn = document.getElementById("compareBtn");
 
+        const zoomDisplay = document.getElementById("zoomLevelDisplay");
+        const imageContainer = document.querySelector(".image_container"); // Wrapper for wheel event
+
+        let currentZoom = 1.0;
+        const zoomStep = 0.1;
+        const maxZoom = 3.0; // 300%
+        const minZoom = 0.1; // 10%
+
         let saveTimer = null;
         const saveDelay = 2000;
 
+        if (image && imageContainer) {
+
+            // Function to update Zoom UI
+            function updateZoom(newZoom) {
+                // Clamp values between min and max
+                currentZoom = Math.min(Math.max(newZoom, minZoom), maxZoom);
+
+                // Apply CSS Transform
+                image.style.transform = `scale(${currentZoom})`;
+
+                // Update Text Display (e.g., "120%")
+                if (zoomDisplay) {
+                    zoomDisplay.innerText = `${Math.round(currentZoom * 100)}%`;
+                }
+            }
+
+            // Mouse Wheel Listener
+            imageContainer.addEventListener('wheel', function(e) {
+                // Prevent the page from scrolling when zooming the image
+                e.preventDefault();
+
+                if (e.deltaY < 0) {
+                    // Scroll Up -> Zoom In
+                    updateZoom(currentZoom + zoomStep);
+                } else {
+                    // Scroll Down -> Zoom Out
+                    updateZoom(currentZoom - zoomStep);
+                }
+            });
+
+            // Reset Zoom on Image Load (optional)
+            image.addEventListener('load', function() {
+                updateZoom(1.0);
+            });
+        }
 
         if (exportLink && imageEditId > 0) {
             const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
