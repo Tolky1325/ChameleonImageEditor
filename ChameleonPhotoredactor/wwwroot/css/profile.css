@@ -85,24 +85,79 @@ body {
 
 .shape {
     position: absolute;
+
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
 }
 
 .shape9 {
     top: -37%;
     left: -7%;
     width: 353px;
+
+    animation-name: float9;
+    animation-duration: 8s;
 }
 
 .shape10 {
     top: -3%;
     right: 0%;
     width: 353px;
+
+    animation-name: float10;
+    animation-duration: 10s;
 }
 
 .shape11 {
     top: -9%;
     right: -14%;
     width: 353px;
+
+    animation-name: float11;
+    animation-duration: 12s;
+}
+
+@keyframes float9 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes float10 {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(15px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes float11 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
 }
 
 .bottom_profile {

@@ -42,3 +42,10 @@
     button:hover {
         background-color: #ff6a00;
     }
+
+.histogram-container {
+    background: #1c1c1c;
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+}

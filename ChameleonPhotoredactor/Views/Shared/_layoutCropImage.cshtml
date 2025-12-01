@@ -40,6 +40,7 @@
                                    ViewContext.RouteData.Values["action"]?.ToString() == "Crop" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">crop</span>
+
                 </div>
                 Crop
             </a>
@@ -86,39 +87,21 @@
                 <p>ƒ/1.8 · 1/500 · ISO 400 · 1600×800 px · png</p>
             </div>
 
-            <div class="info-block">
-                <div class="slider-group">
-                    <div class="label_slider_container">
-                        <label>Exposure</label>
-                        <span id="exposure_value">0</span>
-                    </div>
-
-                    <input type="range" min="-100" max="100" value="0" class="slider" id="exposure_slider">
+            <div class="info-block info_cropimage">
+                <div class="size-input-block">
+                    <input type="text" class="size-input width-input" value="00">
+                    <span class="multiply-symbol">×</span>
+                    <input type="text" class="size-input height-input" value="00">
+                    <span class="material-symbols-outlined">
+                        lock
+                    </span>
                 </div>
 
-                <div class="slider-group">
-                    <div class="label_slider_container">
-                        <label>Contrast</label>
-                        <span id="contrast_value">0</span>
-                    </div>
-
-                    <input type="range" min="-100" max="100" value="0" class="slider" id="contrast_slider">
-                </div>
-
-                <div class="slider-group">
-                    <div class="label_slider_container">
-                        <label>Saturation</label>
-                        <span id="saturation_value">0</span>
-                    </div>
-
-                    <input type="range" min="-100" max="100" value="0" class="slider" id="saturation_slider">
-                </div>
             </div>
+
             </div>
 
         </div>
-
-    </div>
 </body>
 </html>
 

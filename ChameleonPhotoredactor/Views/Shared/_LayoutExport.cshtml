@@ -28,7 +28,7 @@
 
             <a asp-controller="Editor" asp-action="BaseEditor" asp-route-id="@ViewBag.ImageEditId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
-                                                   ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "BaseEditor" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
                 </div>
@@ -37,7 +37,7 @@
 
             <a asp-controller="Export" asp-action="Export" asp-route-id="@ViewBag.ImageEditId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
-                                               ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")"
+                                     ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")"
                id="export-nav-link">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
@@ -52,8 +52,7 @@
 
         <div class="editor-right-panel">
             <div class="histogram">
-                <span class="material-symbols-outlined" style="font-size: 32px;">bar_chart</span>
-                <p>Histogram</p>
+                <canvas id="histogramCanvas" width="256" height="100"></canvas>
             </div>
 
             <div class="info-block">
