@@ -1,27 +1,37 @@
 ﻿function selectImage(element) {
-    // 1. Remove 'selected' class from all other items
     const allItems = document.querySelectorAll('.library_item_container');
     allItems.forEach(item => {
         item.classList.remove('selected-photo');
-        item.style.border = "none"; // Reset inline style if any
+        item.style.border = "none";
     });
 
-    // 2. Add 'selected' class to the clicked element
     element.classList.add('selected-photo');
-
-    // Optional: Add a direct border style if you haven't updated CSS yet
     element.style.border = "4px solid #ffcc5c";
-    element.style.borderRadius = "12px";
+    element.style.borderRadius = "16px";
 
-    // 3. Get the image tag inside the clicked div
+    const imageId = element.getAttribute('data-id');
+    console.log("Selected Image ID:", imageId);
+    //^^no need but for timebeing it`ll be here
+
+    const editBtn = document.getElementById('library-edit-btn');
+    const exportBtn = document.getElementById('library-export-btn');
+    const deleteBtn = document.getElementById('library-delete-btn');
+
+    if (editBtn && imageId) {
+        editBtn.href = '/FullEditor/FullEditor/' + imageId;
+    }
+
+    if (exportBtn && imageId) {
+        exportBtn.href = '/Export/Export/' + imageId;
+    }
+    /*
+    if (deleteBtn && imageId) {
+        deleteBtn.href = '/FullEditor/DeleteImage/' + imageId;
+    }
+    */
+   //^^implement smth later
     const img = element.querySelector('img');
-
-    // 4. Draw the histogram using the function from editor.js
     if (img && typeof drawHistogram === "function") {
-        // We pass "" as the filter string because library images 
-        // usually don't have CSS filters applied directly in the grid.
         drawHistogram(img, "");
-    } else {
-        console.error("drawHistogram function not found. Make sure editor.js is loaded.");
     }
 }

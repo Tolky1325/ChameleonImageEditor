@@ -1,6 +1,8 @@
-using System.Diagnostics;
 using ChameleonPhotoredactor.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace ChameleonPhotoredactor.Controllers
 {
@@ -16,6 +18,7 @@ namespace ChameleonPhotoredactor.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return View();
         }
 

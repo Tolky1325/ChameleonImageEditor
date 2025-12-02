@@ -64,22 +64,20 @@
             </div>
             
             <div class="Library_button-group">
-                <a asp-controller="FullEditor" asp-action="FullEditor" class="library_button">
+                <a id="library-edit-btn" asp-controller="FullEditor" asp-action="FullEditor" class="library_button">
                     Edit
                     <span class="material-symbols-outlined discover_tune-rotate">discover_tune</span>
                 </a>
 
-                <a asp-controller="FullEditor" asp-action="FullEditor" class="library_button">
+                <a id="library-export-btn" asp-controller="Export" asp-action="Export" class="library_button">
                     Export
                     <span class="material-symbols-outlined">download</span>
                 </a>
 
-
-                <a asp-controller="FullEditor" asp-action="FullEditor" class="library_button">
+                <a id="library-delete-btn" asp-controller="FullEditor" asp-action="DeleteImage" class="library_button">
                     Delete
                     <span class="material-symbols-outlined">delete</span>
                 </a>
-
             </div>
 
         </div>
