@@ -7,7 +7,7 @@
 
     element.classList.add('selected-photo');
     element.style.border = "4px solid #ffcc5c";
-    element.style.borderRadius = "16px";
+    element.style.borderRadius = "24px";
 
     const imageId = element.getAttribute('data-id');
     console.log("Selected Image ID:", imageId);

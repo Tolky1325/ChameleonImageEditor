@@ -28,18 +28,28 @@
                 Back
             </a>
 
-            <a asp-controller="Editor" asp-action="BaseEditor" asp-route-id="@ViewBag.ImageEditId"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Editor" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "Editor" ? "active" : "")">
+            <a asp-controller="FullEditor" asp-action="FullEditor" asp-route-id="@ViewBag.ImageId"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullEditor" &&
+                                       ViewContext.RouteData.Values["action"]?.ToString() == "FullEditor" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
                 </div>
                 Edit
             </a>
 
+            <a asp-controller="CropImage" asp-action="Crop"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "CropImage" &&
+                                                  ViewContext.RouteData.Values["action"]?.ToString() == "Crop" ? "active" : "")">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined" style="font-size: 24px;">crop</span>
+                </div>
+                Crop
+            </a>
+
+
             <a asp-controller="Export" asp-action="Export" asp-route-id="@ViewBag.ImageEditId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
-                                     ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")"
+                                     ViewContext.RouteData.Values["action"]?.ToString() == "FullExport" ? "active" : "")"
                id="export-nav-link">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
