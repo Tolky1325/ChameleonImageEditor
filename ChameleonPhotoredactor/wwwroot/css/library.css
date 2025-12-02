@@ -393,4 +393,15 @@ a.library_button {
     .library_item_container {
         width: 100%;
     }
+    /* Add this style for the selected state */
+    .library-item.selected-photo img {
+        border: 4px solid #ffcc5c; /* Gold/Yellow highlight color */
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        transform: scale(1.02); /* Slight zoom effect */
+        transition: all 0.2s ease-in-out;
+    }
+
+    .library-item {
+        transition: all 0.2s ease-in-out;
+    }
 }

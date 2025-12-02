@@ -35,9 +35,9 @@
             {
                 var base64 = Convert.ToBase64String(img.ImageData);
                 var imgSrc = String.Format("data:{0};base64,{1}", img.ImageType, base64);
-                <div class="library_item_container">
-                    <div class="library_item">
-                        <img src="@imgSrc" alt="@img.ImageName" />
+                <div class="library_item_container" onclick="selectImage(this)">
+                    <div class="library_item"  data-id="@img.ImageId" >
+                        <img src="@imgSrc" alt="@img.ImageName"/>
                     </div>
 
                     <div class="library_caption">
@@ -45,7 +45,8 @@
                         <h6>Updated: @img.</h6>
                     </div>
                 </div>
-
+                
+                
             }
         }
         else
