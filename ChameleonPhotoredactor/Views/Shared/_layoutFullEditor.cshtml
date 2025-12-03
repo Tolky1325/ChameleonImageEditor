@@ -44,8 +44,8 @@
                 Crop
             </a>
 
-            <a id="export-nav-link" asp-controller="Export" asp-action="Export"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
+            <a id="export-nav-link" asp-controller="FullExport" asp-action="FullExport"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullExport" &&
                                                    ViewContext.RouteData.Values["action"]?.ToString() == "FullExport" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>

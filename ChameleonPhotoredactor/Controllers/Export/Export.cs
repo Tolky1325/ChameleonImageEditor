@@ -30,11 +30,7 @@ public class ExportController : Controller
         ViewBag.Contrast = imageEdit.ContrastChange;
         ViewBag.ImageEditId = id;
 
-        if (User.Identity != null && User.Identity.IsAuthenticated)
-        {
-            return View("FullExport");
-        }
+            return View("~/Views/Export/Export.cshtml");
 
-        return View();
     }
 }

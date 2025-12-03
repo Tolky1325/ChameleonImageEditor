@@ -47,8 +47,8 @@
             </a>
 
 
-            <a asp-controller="Export" asp-action="Export" asp-route-id="@ViewBag.ImageEditId"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
+            <a asp-controller="FullExport" asp-action="FullExport" asp-route-id="@ViewBag.ImageEditId"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullExport" &&
                                      ViewContext.RouteData.Values["action"]?.ToString() == "FullExport" ? "active" : "")"
                id="export-nav-link">
                 <div class="icon-container">

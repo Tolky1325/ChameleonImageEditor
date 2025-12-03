@@ -46,7 +46,7 @@
 
         if (exportLink && imageEditId > 0) {
             
-            const exportUrl = '@Url.Action("Export", "Export")' + '/' + imageEditId;
+            const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
             exportLink.href = exportUrl;
         } else if (exportLink) {
             exportLink.style.display = 'none';
