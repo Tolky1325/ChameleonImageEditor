@@ -262,23 +262,26 @@ footer {
 }
 
 .content-container2 {
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 28px;
     margin-right: 20px;
     margin-top: 40px;
-    align-items: center;
-    position: relative;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 .login-content {
-    padding: 0 100px 0 80px;
-    margin-left: 145px;
-    margin-top: -655px;
+    position: absolute;
+    left: 16%;
+    top: 5%;
+    transform: translateY(-50%);
     z-index: 10;
 }
+
 
 .text-authorization {
     font-size: 2rem;
@@ -290,6 +293,7 @@ footer {
     width: 335px;
     padding: 24px;
     font-family: 'Nunito', sans-serif;
+    z-index: 20;
 }
 
 .input-group {
