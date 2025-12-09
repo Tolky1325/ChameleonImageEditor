@@ -26,7 +26,7 @@
                 Back
             </a>
 
-            <a asp-controller="FullEditor" asp-action="FullEditor"
+            <a asp-controller="FullEditor" asp-action="FullEditor" asp-route-id="@ViewBag.ImageId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullEditor" &&
                                     ViewContext.RouteData.Values["action"]?.ToString() == "FullEditor" ? "active" : "")">
                 <div class="icon-container">
@@ -45,9 +45,9 @@
                 Crop
             </a>
 
-            <a id="export-nav-link" asp-controller="Export" asp-action="Export"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Export" &&
-                                                   ViewContext.RouteData.Values["action"]?.ToString() == "Export" ? "active" : "")">
+            <a id="export-nav-link" asp-controller="FullExport" asp-action="FullExport" asp-route-id="@ViewBag.ImageId"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FullExport" &&
+                                                   ViewContext.RouteData.Values["action"]?.ToString() == "FullExport" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">download</span>
                 </div>
@@ -65,7 +65,7 @@
                     </div>
                     0,00%
                 </a>
-
+                
                 <a>
                     <div class="icon-container2">
                         <span class="material-symbols-outlined" style="font-size: 24px;">compare</span>

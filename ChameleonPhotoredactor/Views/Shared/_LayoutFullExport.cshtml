@@ -19,9 +19,9 @@
     <div class="editor-layout">
         <nav class="editor-nav">
 
-            <a asp-controller="Home" asp-action="Index"
-               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
-                                    ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+            <a asp-controller="Library" asp-action="Library"
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Library" &&
+                                    ViewContext.RouteData.Values["action"]?.ToString() == "Library" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
                 </div>
@@ -37,7 +37,7 @@
                 Edit
             </a>
 
-            <a asp-controller="CropImage" asp-action="Crop"
+            <a asp-controller="CropImage" asp-action="Crop" asp-route-id="@ViewBag.ImageId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "CropImage" &&
                                                   ViewContext.RouteData.Values["action"]?.ToString() == "Crop" ? "active" : "")">
                 <div class="icon-container">

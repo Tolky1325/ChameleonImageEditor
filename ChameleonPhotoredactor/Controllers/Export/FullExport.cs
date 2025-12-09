@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
         public async Task<IActionResult> FullExport(int id)
         {
             if (id <= 0)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Library", "Library");
 
             var imageEdit = await _context.ImageEdits
                                            .Include(e => e.Image)
@@ -27,9 +27,11 @@ using Microsoft.EntityFrameworkCore;
             ViewBag.ImageData = imageEdit.Image.ImageData;
             ViewBag.Exposure = imageEdit.ExposureChange;
             ViewBag.Contrast = imageEdit.ContrastChange;
+            ViewBag.Saturation = imageEdit.SaturationChange;
             ViewBag.ImageEditId = id;
+            ViewBag.ImageId = imageEdit.ImageId;
 
-       
+
             return View("~/Views/Export/FullExport.cshtml");
             
 

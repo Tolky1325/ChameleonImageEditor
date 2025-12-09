@@ -35,7 +35,7 @@
                 Edit
             </a>
 
-            <a asp-controller="CropImage" asp-action="Crop"
+            <a asp-controller="CropImage" asp-action="Crop" asp-route-id="@ViewBag.ImageId"
                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "CropImage" &&
                                    ViewContext.RouteData.Values["action"]?.ToString() == "Crop" ? "active" : "")">
                 <div class="icon-container">

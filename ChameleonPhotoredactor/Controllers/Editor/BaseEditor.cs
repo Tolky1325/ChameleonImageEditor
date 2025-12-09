@@ -144,7 +144,7 @@ public class EditorController : Controller
 
             var image = new Image(
                 userId: userId,
-                //^^Links to either the logged-in user or new guest
+                //^^Links to either the new or existing guest
                 imageName: Path.GetFileName(file.FileName),
                 imageData: fileData,
                 imageType: file.ContentType
@@ -165,7 +165,6 @@ public class EditorController : Controller
             _context.ImageEdits.Add(imageEdit);
             await _context.SaveChangesAsync();
             
-            //^^creating taple for ImageEdit(so that we could update it while editing)
 
             ViewBag.ImageData = fileData;
             ViewBag.ImageType = file.ContentType;
