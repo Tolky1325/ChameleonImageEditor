@@ -4,6 +4,24 @@
 
 });
 
+document.querySelectorAll('.slider-group input[type="range"]')
+    .forEach(slider => {
+        const updateTrack = () => {
+            const min = slider.min ? Number(slider.min) : 0;
+            const max = slider.max ? Number(slider.max) : 100;
+            const value = Number(slider.value);
+
+            const percent = ((value - min) / (max - min)) * 100;
+
+            slider.style.setProperty('--value', `${percent}%`);
+        };
+
+        slider.addEventListener('input', updateTrack);
+        updateTrack();
+    });
+
+
+
 function drawHistogram(img, filterString = "") {
     const canvas = document.getElementById("histogramCanvas");
     if (!canvas) return;
