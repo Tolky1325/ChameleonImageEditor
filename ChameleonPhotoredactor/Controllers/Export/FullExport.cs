@@ -22,7 +22,7 @@ using Microsoft.EntityFrameworkCore;
                                            .FirstOrDefaultAsync(e => e.ImageEditId == id);
 
             if (imageEdit == null || imageEdit.Image == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Library", "Library");
 
             ViewBag.ImageData = imageEdit.Image.ImageData;
             ViewBag.Exposure = imageEdit.ExposureChange;
@@ -33,8 +33,6 @@ using Microsoft.EntityFrameworkCore;
 
 
             return View("~/Views/Export/FullExport.cshtml");
-            
-
         }
     }
 

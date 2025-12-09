@@ -5,5 +5,6 @@
         public int ImageEditId { get; set; }
         public float Exposure { get; set; }
         public float Contrast { get; set; }
+        public float Saturation { get; set; }
     }
 }

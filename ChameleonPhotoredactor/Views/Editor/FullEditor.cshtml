@@ -31,12 +31,16 @@
 
         const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+        const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
 
         const image = document.getElementById("editable_image");
         const exposureSlider = document.getElementById("exposure_slider");
         const contrastSlider = document.getElementById("contrast_slider");
+        const saturationSlider = document.getElementById("saturation_slider");
+
         const exposureValue = document.getElementById("exposure_value");
         const contrastValue = document.getElementById("contrast_value");
+        const saturationValue = document.getElementById("saturation_value");
 
         const exportLink = document.getElementById("export-nav-link");
         const imageEditId = @(ViewBag.ImageEditId ?? 0);
@@ -45,7 +49,6 @@
         const saveDelay = 2000;
 
         if (exportLink && imageEditId > 0) {
-            
             const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
             exportLink.href = exportUrl;
         } else if (exportLink) {
@@ -53,31 +56,45 @@
         }
 
         if (image) {
-            
             exposureSlider.value = initialExposure;
             contrastSlider.value = initialContrast;
+            if(saturationSlider) saturationSlider.value = initialSaturation;
+
             applyFilters();
 
             function applyFilters() {
                 const exposure = 1 + (exposureSlider.value / 100);
                 const contrast = 1 + (contrastSlider.value / 100);
+                
+                const satVal = saturationSlider ? saturationSlider.value : 0;
+                const saturation = 1 + (satVal / 100);
 
-                image.style.filter = `brightness(${exposure}) contrast(${contrast})`;
+                const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
+
+                image.style.filter = filterString;
 
                 exposureValue.textContent = exposureSlider.value;
                 contrastValue.textContent = contrastSlider.value;
+                if(saturationValue) saturationValue.textContent = satVal;
+                
+                if (typeof drawHistogram === "function") {
+                    drawHistogram(image, filterString);
+                }
             }
 
             function autoSaveEdits() {
                 console.log("Saving edits...");
+                
+                const satVal = saturationSlider ? parseFloat(saturationSlider.value) : 0;
 
                 const editData = {
                     ImageEditId: imageEditId,
                     Exposure: parseFloat(exposureSlider.value),
-                    Contrast: parseFloat(contrastSlider.value)
+                    Contrast: parseFloat(contrastSlider.value),
+                    Saturation: satVal
                 };
 
-                return fetch('@Url.Action("SaveEdits", "Editor")', {
+                return fetch('@Url.Action("SaveEdits", "FullEditor")', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -87,39 +104,28 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if(data.success) {
-                        console.log("Save successful:", data.message);
-                    } else {
-                        console.error("Save failed:", data.message);
-                    }
+                    if(data.success) console.log("Save successful");
+                    else console.error("Save failed:", data.message);
                 })
-                .catch(error => {
-                    console.error('Error during auto-save:', error);
-                });
+                .catch(error => console.error('Error:', error));
             }
 
             function onSliderInput() {
                 applyFilters();
                 clearTimeout(saveTimer);
-                
                 saveTimer = setTimeout(autoSaveEdits, saveDelay);
             }
 
             exposureSlider.addEventListener("input", onSliderInput);
             contrastSlider.addEventListener("input", onSliderInput);
+            if (saturationSlider) saturationSlider.addEventListener("input", onSliderInput);
 
             if (exportLink) {
                 exportLink.addEventListener('click', function(e) {
-                    
                     e.preventDefault();
-
                     clearTimeout(saveTimer);
-
-                    console.log("Forcing save before export...");
                     const targetUrl = this.href;
-
                     autoSaveEdits().finally(() => {
-                        
                         window.location.href = targetUrl;
                     });
                 });

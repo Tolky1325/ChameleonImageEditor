@@ -14,10 +14,13 @@
 
             var exposureValue = 1 + ((double)(ViewBag.Exposure ?? 0) / 100.0);
             var contrastValue = 1 + ((double)(ViewBag.Contrast ?? 0) / 100.0);
+            var saturationValue = 1 + ((double)(ViewBag.Saturation ?? 0) / 100.0);
 
             var brightnessCss = exposureValue.ToString(CultureInfo.InvariantCulture);
             var contrastCss = contrastValue.ToString(CultureInfo.InvariantCulture);
-            var filterStyle = $"brightness({brightnessCss}) contrast({contrastCss})";
+            var saturationCss = saturationValue.ToString(CultureInfo.InvariantCulture);
+
+            var filterStyle = $"brightness({brightnessCss}) contrast({contrastCss}) saturate({saturationCss})";
 
             <img src="@imgSrc" alt="Final Image" id="final_image" style="max-width: 500px; border-radius: 10px; filter: @filterStyle;" />
         }
