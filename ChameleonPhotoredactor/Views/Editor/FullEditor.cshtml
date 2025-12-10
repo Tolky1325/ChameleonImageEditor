@@ -29,12 +29,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
 
-            // 1. Get Saved Values
             const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
             const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
             const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
 
-            // Get Crop Data
             const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
 
             const image = document.getElementById("editable_image");
@@ -59,40 +57,31 @@
                 exportLink.style.display = 'none';
             }
 
-            // --- NEW: Helper to visually crop the image element ---
             function applyVisualCrop(img, cropData) {
                 if (!cropData) return;
 
-                // Create a canvas to cut the image
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
 
                 canvas.width = cropData.width;
                 canvas.height = cropData.height;
 
-                // Draw only the cropped part
                 ctx.drawImage(img, cropData.x, cropData.y, cropData.width, cropData.height, 0, 0, cropData.width, cropData.height);
 
-                // Replace the image source with the cropped version
                 img.src = canvas.toDataURL();
             }
-            // -----------------------------------------------------
 
             if (image) {
 
-                // 2. Initialize Logic (Handle Visual Crop first)
                 const init = () => {
-                    // If we have crop data, apply it visually
                     if (savedCropData) {
                         applyVisualCrop(image, savedCropData);
                     }
 
-                    // Initialize Sliders
                     exposureSlider.value = initialExposure;
                     contrastSlider.value = initialContrast;
                     if(saturationSlider) saturationSlider.value = initialSaturation;
 
-                    // Apply Filters (Brightness/Contrast/Saturation)
                     applyFilters();
                 };
 
@@ -100,7 +89,6 @@
                     init();
                 } else {
                     image.onload = () => {
-                        // Only run init once (changing src triggers onload again)
                         if (!image.dataset.ready) {
                             image.dataset.ready = "true";
                             init();
@@ -137,7 +125,6 @@
                         Exposure: parseFloat(exposureSlider.value),
                         Contrast: parseFloat(contrastSlider.value),
                         Saturation: satVal,
-                        // We send the existing crop data back so it doesn't get lost
                         CropData: savedCropData ? JSON.stringify(savedCropData) : null
                     };
 

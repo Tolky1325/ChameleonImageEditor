@@ -24,7 +24,22 @@ using Microsoft.EntityFrameworkCore;
             if (imageEdit == null || imageEdit.Image == null)
                 return RedirectToAction("Library", "Library");
 
-            ViewBag.ImageData = imageEdit.Image.ImageData;
+        if (imageEdit.TimeSpent == 1)
+        {
+            imageEdit.TimeSpent = 2; 
+
+            var userStats = await _context.UserStats.FirstOrDefaultAsync(u => u.UserId == imageEdit.Image.UserId);
+            if (userStats != null)
+            {
+                userStats.exportCount += 1;
+                _context.Update(userStats);
+            }
+
+            _context.Update(imageEdit);
+            await _context.SaveChangesAsync();
+        }
+
+        ViewBag.ImageData = imageEdit.Image.ImageData;
             ViewBag.Exposure = imageEdit.ExposureChange;
             ViewBag.Contrast = imageEdit.ContrastChange;
             ViewBag.Saturation = imageEdit.SaturationChange;

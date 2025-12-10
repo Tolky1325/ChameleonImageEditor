@@ -71,6 +71,20 @@ public class FullEditorController : Controller
             return Json(new { success = false, message = "Error saving." });
         }
 
+        bool hasVisualChanges = (model.Exposure != 0 || model.Contrast != 0 || model.Saturation != 0 || !string.IsNullOrEmpty(model.CropData));
+
+        if (hasVisualChanges && editToUpdate.TimeSpent == 0)
+        {
+            editToUpdate.TimeSpent = 1; 
+
+            var userStats = await _context.UserStats.FirstOrDefaultAsync(u => u.UserId == userId);
+            if (userStats != null)
+            {
+                userStats.editCount += 1;
+                _context.Update(userStats);
+            }
+        }
+
         editToUpdate.ExposureChange = model.Exposure;
         editToUpdate.ContrastChange = model.Contrast;
         editToUpdate.SaturationChange = model.Saturation;
