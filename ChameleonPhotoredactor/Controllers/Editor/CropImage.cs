@@ -61,6 +61,8 @@ public class CropImageController : Controller
         ViewBag.InitialExposure = imageEdit.ExposureChange;
         ViewBag.InitialContrast = imageEdit.ContrastChange;
         ViewBag.InitialSaturation = imageEdit.SaturationChange;
+        ViewBag.CropData = imageEdit.CropData;
+
 
         return View("~/Views/Editor/CropImage.cshtml");
     }

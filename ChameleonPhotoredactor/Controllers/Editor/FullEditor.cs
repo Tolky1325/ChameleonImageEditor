@@ -49,8 +49,8 @@ public class FullEditorController : Controller
 
         ViewBag.InitialExposure = imageEdit.ExposureChange;
         ViewBag.InitialContrast = imageEdit.ContrastChange;
-
         ViewBag.InitialSaturation = imageEdit.SaturationChange;
+        ViewBag.CropData = imageEdit.CropData;
 
         return View("~/Views/Editor/FullEditor.cshtml");
     }
@@ -73,8 +73,8 @@ public class FullEditorController : Controller
 
         editToUpdate.ExposureChange = model.Exposure;
         editToUpdate.ContrastChange = model.Contrast;
-
         editToUpdate.SaturationChange = model.Saturation;
+        editToUpdate.CropData = model.CropData;
 
         editToUpdate.LastEditDate = DateTime.UtcNow;
 

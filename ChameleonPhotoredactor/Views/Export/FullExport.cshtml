@@ -36,30 +36,53 @@
         document.addEventListener("DOMContentLoaded", function() {
 
             const img = document.getElementById("final_image");
+            const downloadBtn = document.getElementById("export-download-trigger");
+            const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
 
-            if (img && typeof drawHistogram === "function") {
-                const currentFilters = img.style.filter;
+            // --- Apply Visual Crop ---
+            if (img && savedCropData) {
+                // We must crop BEFORE setting up the download button
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = savedCropData.width;
+                canvas.height = savedCropData.height;
 
-                if (img.complete) {
-                    drawHistogram(img, currentFilters);
-                } else {
-                    img.onload = function() {
-                        drawHistogram(img, currentFilters);
-                    };
-                }
+                // Draw cut image
+                ctx.drawImage(img, savedCropData.x, savedCropData.y, savedCropData.width, savedCropData.height, 0, 0, savedCropData.width, savedCropData.height);
+
+                // Update source
+                img.onload = null; // Prevent loops
+                img.src = canvas.toDataURL();
             }
 
-            const downloadBtn = document.getElementById("export-download-trigger");
+            // --- Draw Histogram ---
+            if (img && typeof drawHistogram === "function") {
+                // Wait for the new cropped source to be ready
+                const waitForCrop = () => {
+                    if (img.complete) {
+                        drawHistogram(img, img.style.filter);
+                    } else {
+                        img.onload = () => drawHistogram(img, img.style.filter);
+                    }
+                };
+                waitForCrop();
+            }
 
+            // --- Download Logic ---
             if (downloadBtn && img) {
                 downloadBtn.addEventListener("click", function() {
                     const canvas = document.createElement("canvas");
                     const ctx = canvas.getContext("2d");
 
+                    // Since 'img' is ALREADY cropped visually (src replaced above),
+                    // we just draw it directly.
                     canvas.width = img.naturalWidth;
                     canvas.height = img.naturalHeight;
 
+                    // Apply filters (Brightness/Contrast/Sat)
                     ctx.filter = img.style.filter;
+
+                    // Draw image at 0,0 (It's already cropped!)
                     ctx.drawImage(img, 0, 0);
 
                     const originalName = "@(ViewBag.FileName ?? "image.png")";

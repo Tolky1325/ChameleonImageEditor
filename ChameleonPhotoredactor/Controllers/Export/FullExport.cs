@@ -28,6 +28,8 @@ using Microsoft.EntityFrameworkCore;
             ViewBag.Exposure = imageEdit.ExposureChange;
             ViewBag.Contrast = imageEdit.ContrastChange;
             ViewBag.Saturation = imageEdit.SaturationChange;
+            ViewBag.CropData = imageEdit.CropData;
+
             ViewBag.ImageEditId = id;
             ViewBag.ImageId = imageEdit.ImageId;
 

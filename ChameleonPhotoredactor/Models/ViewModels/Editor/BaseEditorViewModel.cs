@@ -6,5 +6,6 @@
         public float Exposure { get; set; }
         public float Contrast { get; set; }
         public float Saturation { get; set; }
+        public string? CropData { get; set; }
     }
 }

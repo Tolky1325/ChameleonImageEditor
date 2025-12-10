@@ -28,27 +28,85 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-
-        const exposureVal = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-        const contrastVal = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-        const saturationVal = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-
-        const exposure = 1 + (exposureVal / 100);
-        const contrast = 1 + (contrastVal / 100);
-        const saturation = 1 + (saturationVal / 100);
-
         const image = document.getElementById("editable_image");
         const exportLink = document.getElementById("export-nav-link");
         const imageEditId = @(ViewBag.ImageEditId ?? 0);
 
-        if (exportLink && imageEditId > 0) {
-            const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
-            exportLink.href = exportUrl;
+        const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+        const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+        const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+
+        const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
+
+        const widthInput = document.querySelector(".width-input");
+        const heightInput = document.querySelector(".height-input");
+
+        const exposure = 1 + (initialExposure / 100);
+        const contrast = 1 + (initialContrast / 100);
+        const saturation = 1 + (initialSaturation / 100);
+        const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
+
+        let cropper;
+        if (image) {
+            cropper = new Cropper(image, {
+                viewMode: 1,
+                autoCropArea: 1,
+                ready() {
+                    const cropperCanvas = this.cropper.container.querySelector('.cropper-canvas img');
+                    const cropperView = this.cropper.container.querySelector('.cropper-view-box img');
+                    if(cropperCanvas) cropperCanvas.style.filter = filterString;
+                    if(cropperView) cropperView.style.filter = filterString;
+
+                    if (savedCropData) {
+                        this.cropper.setData(savedCropData);
+                    }
+                },
+                crop(event) {
+                    if(widthInput) widthInput.value = Math.round(event.detail.width);
+                    if(heightInput) heightInput.value = Math.round(event.detail.height);
+
+                    clearTimeout(window.saveTimer);
+                    window.saveTimer = setTimeout(saveCrop, 1000);
+                }
+            });
         }
 
-        if (image) {
-            const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
-            image.style.filter = filterString;
+        function saveCrop() {
+            if (!cropper) return;
+            console.log("Saving crop...");
+
+            const cropData = cropper.getData();
+
+            const editData = {
+                ImageEditId: imageEditId,
+                Exposure: initialExposure,
+                Contrast: initialContrast,
+                Saturation: initialSaturation,
+                CropData: JSON.stringify(cropData) 
+            };
+
+            fetch('@Url.Action("SaveEdits", "FullEditor")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': getAntiCSRFToken()
+                },
+                body: JSON.stringify(editData)
+            }).then(r => r.json()).then(d => {
+                if(d.success) console.log("Crop saved.");
+            });
+        }
+
+        if (exportLink && imageEditId > 0) {
+            const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
+
+            exportLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                saveCrop(); 
+                setTimeout(() => { window.location.href = this.href; }, 200);
+            });
+
+            exportLink.href = exportUrl;
         }
 
         function getAntiCSRFToken() {
