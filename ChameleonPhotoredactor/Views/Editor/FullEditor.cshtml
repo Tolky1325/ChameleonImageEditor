@@ -1,187 +1,187 @@
-﻿@{
-    ViewData["Title"] = "Editor Page";
-    Layout = "~/Views/Shared/_LayoutFullEditor.cshtml";
-}
+﻿    @{
+        ViewData["Title"] = "Editor Page";
+        Layout = "~/Views/Shared/_LayoutFullEditor.cshtml";
+    }
 
-<div class="content-container_Full">
+    <div class="content-container_Full">
 
-    <form asp-controller="FullEditor" asp-action="FullEditor" method="post" enctype="multipart/form-data">
+        <form asp-controller="FullEditor" asp-action="FullEditor" method="post" enctype="multipart/form-data">
         
-    </form>
-    <div class="image_container">
-        @if (ViewBag.ImagePath != null)
-        {
-            <img src="@ViewBag.ImagePath" alt="Uploaded Image" style="max-width: 500px; border-radius: 10px;" />
-        }
-        else if (ViewBag.ImageData != null)
-        {
-            var base64 = Convert.ToBase64String(ViewBag.ImageData);
-            var imgSrc = String.Format("data:{0};base64,{1}", ViewBag.ImageType, base64);
-            <img src="@imgSrc" alt="Uploaded Image" id="editable_image" style="max-width: 500px; border-radius: 10px;" />
-        }
-        else
-        {
-            <p>No image selected. Please upload one.</p>
-        }
+        </form>
+        <div class="image_container">
+            @if (ViewBag.ImagePath != null)
+            {
+                <img src="@ViewBag.ImagePath" alt="Uploaded Image" style="max-width: 500px; border-radius: 10px;" />
+            }
+            else if (ViewBag.ImageData != null)
+            {
+                var base64 = Convert.ToBase64String(ViewBag.ImageData);
+                var imgSrc = String.Format("data:{0};base64,{1}", ViewBag.ImageType, base64);
+                <img src="@imgSrc" alt="Uploaded Image" id="editable_image" style="max-width: 500px; border-radius: 10px;" />
+            }
+            else
+            {
+                <p>No image selected. Please upload one.</p>
+            }
+        </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
-        // 1. Get Saved Values
-        const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-        const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-        const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            // 1. Get Saved Values
+            const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
 
-        // Get Crop Data
-        const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
+            // Get Crop Data
+            const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
 
-        const image = document.getElementById("editable_image");
-        const exposureSlider = document.getElementById("exposure_slider");
-        const contrastSlider = document.getElementById("contrast_slider");
-        const saturationSlider = document.getElementById("saturation_slider");
+            const image = document.getElementById("editable_image");
+            const exposureSlider = document.getElementById("exposure_slider");
+            const contrastSlider = document.getElementById("contrast_slider");
+            const saturationSlider = document.getElementById("saturation_slider");
 
-        const exposureValue = document.getElementById("exposure_value");
-        const contrastValue = document.getElementById("contrast_value");
-        const saturationValue = document.getElementById("saturation_value");
+            const exposureValue = document.getElementById("exposure_value");
+            const contrastValue = document.getElementById("contrast_value");
+            const saturationValue = document.getElementById("saturation_value");
 
-        const exportLink = document.getElementById("export-nav-link");
-        const imageEditId = @(ViewBag.ImageEditId ?? 0);
+            const exportLink = document.getElementById("export-nav-link");
+            const imageEditId = @(ViewBag.ImageEditId ?? 0);
 
-        let saveTimer = null;
-        const saveDelay = 2000;
+            let saveTimer = null;
+            const saveDelay = 2000;
 
-        if (exportLink && imageEditId > 0) {
-            const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
-            exportLink.href = exportUrl;
-        } else if (exportLink) {
-            exportLink.style.display = 'none';
-        }
+            if (exportLink && imageEditId > 0) {
+                const exportUrl = '@Url.Action("FullExport", "FullExport")' + '/' + imageEditId;
+                exportLink.href = exportUrl;
+            } else if (exportLink) {
+                exportLink.style.display = 'none';
+            }
 
-        // --- NEW: Helper to visually crop the image element ---
-        function applyVisualCrop(img, cropData) {
-            if (!cropData) return;
+            // --- NEW: Helper to visually crop the image element ---
+            function applyVisualCrop(img, cropData) {
+                if (!cropData) return;
 
-            // Create a canvas to cut the image
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+                // Create a canvas to cut the image
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
 
-            canvas.width = cropData.width;
-            canvas.height = cropData.height;
+                canvas.width = cropData.width;
+                canvas.height = cropData.height;
 
-            // Draw only the cropped part
-            ctx.drawImage(img, cropData.x, cropData.y, cropData.width, cropData.height, 0, 0, cropData.width, cropData.height);
+                // Draw only the cropped part
+                ctx.drawImage(img, cropData.x, cropData.y, cropData.width, cropData.height, 0, 0, cropData.width, cropData.height);
 
-            // Replace the image source with the cropped version
-            img.src = canvas.toDataURL();
-        }
-        // -----------------------------------------------------
+                // Replace the image source with the cropped version
+                img.src = canvas.toDataURL();
+            }
+            // -----------------------------------------------------
 
-        if (image) {
+            if (image) {
 
-            // 2. Initialize Logic (Handle Visual Crop first)
-            const init = () => {
-                // If we have crop data, apply it visually
-                if (savedCropData) {
-                    applyVisualCrop(image, savedCropData);
-                }
-
-                // Initialize Sliders
-                exposureSlider.value = initialExposure;
-                contrastSlider.value = initialContrast;
-                if(saturationSlider) saturationSlider.value = initialSaturation;
-
-                // Apply Filters (Brightness/Contrast/Saturation)
-                applyFilters();
-            };
-
-            if (image.complete) {
-                init();
-            } else {
-                image.onload = () => {
-                    // Only run init once (changing src triggers onload again)
-                    if (!image.dataset.ready) {
-                        image.dataset.ready = "true";
-                        init();
+                // 2. Initialize Logic (Handle Visual Crop first)
+                const init = () => {
+                    // If we have crop data, apply it visually
+                    if (savedCropData) {
+                        applyVisualCrop(image, savedCropData);
                     }
+
+                    // Initialize Sliders
+                    exposureSlider.value = initialExposure;
+                    contrastSlider.value = initialContrast;
+                    if(saturationSlider) saturationSlider.value = initialSaturation;
+
+                    // Apply Filters (Brightness/Contrast/Saturation)
+                    applyFilters();
                 };
-            }
 
-            function applyFilters() {
-                const exposure = 1 + (exposureSlider.value / 100);
-                const contrast = 1 + (contrastSlider.value / 100);
+                if (image.complete) {
+                    init();
+                } else {
+                    image.onload = () => {
+                        // Only run init once (changing src triggers onload again)
+                        if (!image.dataset.ready) {
+                            image.dataset.ready = "true";
+                            init();
+                        }
+                    };
+                }
 
-                const satVal = saturationSlider ? saturationSlider.value : 0;
-                const saturation = 1 + (satVal / 100);
+                function applyFilters() {
+                    const exposure = 1 + (exposureSlider.value / 100);
+                    const contrast = 1 + (contrastSlider.value / 100);
 
-                const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
+                    const satVal = saturationSlider ? saturationSlider.value : 0;
+                    const saturation = 1 + (satVal / 100);
 
-                image.style.filter = filterString;
+                    const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
 
-                exposureValue.textContent = exposureSlider.value;
-                contrastValue.textContent = contrastSlider.value;
-                if(saturationValue) saturationValue.textContent = satVal;
+                    image.style.filter = filterString;
 
-                if (typeof drawHistogram === "function") {
-                    drawHistogram(image, filterString);
+                    exposureValue.textContent = exposureSlider.value;
+                    contrastValue.textContent = contrastSlider.value;
+                    if(saturationValue) saturationValue.textContent = satVal;
+
+                    if (typeof drawHistogram === "function") {
+                        drawHistogram(image, filterString);
+                    }
+                }
+
+                function autoSaveEdits() {
+                    console.log("Saving edits...");
+                    const satVal = saturationSlider ? parseFloat(saturationSlider.value) : 0;
+
+                    const editData = {
+                        ImageEditId: imageEditId,
+                        Exposure: parseFloat(exposureSlider.value),
+                        Contrast: parseFloat(contrastSlider.value),
+                        Saturation: satVal,
+                        // We send the existing crop data back so it doesn't get lost
+                        CropData: savedCropData ? JSON.stringify(savedCropData) : null
+                    };
+
+                    return fetch('@Url.Action("SaveEdits", "FullEditor")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': getAntiCSRFToken()
+                        },
+                        body: JSON.stringify(editData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.success) console.log("Save successful");
+                        else console.error("Save failed:", data.message);
+                    })
+                    .catch(error => console.error('Error:', error));
+                }
+
+                function onSliderInput() {
+                    applyFilters();
+                    clearTimeout(saveTimer);
+                    saveTimer = setTimeout(autoSaveEdits, saveDelay);
+                }
+
+                exposureSlider.addEventListener("input", onSliderInput);
+                contrastSlider.addEventListener("input", onSliderInput);
+                if (saturationSlider) saturationSlider.addEventListener("input", onSliderInput);
+
+                if (exportLink) {
+                    exportLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        clearTimeout(saveTimer);
+                        const targetUrl = this.href;
+                        autoSaveEdits().finally(() => {
+                            window.location.href = targetUrl;
+                        });
+                    });
                 }
             }
 
-            function autoSaveEdits() {
-                console.log("Saving edits...");
-                const satVal = saturationSlider ? parseFloat(saturationSlider.value) : 0;
-
-                const editData = {
-                    ImageEditId: imageEditId,
-                    Exposure: parseFloat(exposureSlider.value),
-                    Contrast: parseFloat(contrastSlider.value),
-                    Saturation: satVal,
-                    // We send the existing crop data back so it doesn't get lost
-                    CropData: savedCropData ? JSON.stringify(savedCropData) : null
-                };
-
-                return fetch('@Url.Action("SaveEdits", "FullEditor")', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': getAntiCSRFToken()
-                    },
-                    body: JSON.stringify(editData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if(data.success) console.log("Save successful");
-                    else console.error("Save failed:", data.message);
-                })
-                .catch(error => console.error('Error:', error));
+            function getAntiCSRFToken() {
+                const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                return tokenInput ? tokenInput.value : '';
             }
-
-            function onSliderInput() {
-                applyFilters();
-                clearTimeout(saveTimer);
-                saveTimer = setTimeout(autoSaveEdits, saveDelay);
-            }
-
-            exposureSlider.addEventListener("input", onSliderInput);
-            contrastSlider.addEventListener("input", onSliderInput);
-            if (saturationSlider) saturationSlider.addEventListener("input", onSliderInput);
-
-            if (exportLink) {
-                exportLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    clearTimeout(saveTimer);
-                    const targetUrl = this.href;
-                    autoSaveEdits().finally(() => {
-                        window.location.href = targetUrl;
-                    });
-                });
-            }
-        }
-
-        function getAntiCSRFToken() {
-            const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
-            return tokenInput ? tokenInput.value : '';
-        }
-    });
-</script>
+        });
+    </script>

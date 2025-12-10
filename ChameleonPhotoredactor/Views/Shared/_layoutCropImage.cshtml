@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
     <script src="~/js/site.js"></script>
+
 </head>
 
 <body>
@@ -93,17 +94,18 @@
 
             <div class="info-block info_cropimage">
                 <div class="size-input-block">
-                    <input type="text" class="size-input width-input" value="00">
+                    <input type="text" class="size-input width-input" id="custom-crop-width" value="00">
                     <span class="multiply-symbol">×</span>
-                    <input type="text" class="size-input height-input" value="00">
-                    <span class="material-symbols-outlined">
-                        lock
-                    </span>
+                    <input type="text" class="size-input height-input" id="custom-crop-height" value="00">
+                    <button type="button" class="aspect-ratio-lock-btn" id="aspect-ratio-lock-btn" data-locked="true" title="Toggle Aspect Ratio Lock">
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+                    </button>
                 </div>
-
             </div>
 
-            </div>
+        </div>
 
         </div>
 </body>

@@ -32,14 +32,15 @@
         const exportLink = document.getElementById("export-nav-link");
         const imageEditId = @(ViewBag.ImageEditId ?? 0);
 
+        const widthInput = document.getElementById("custom-crop-width");
+        const heightInput = document.getElementById("custom-crop-height");
+        const lockBtn = document.getElementById("aspect-ratio-lock-btn");
+        const lockIcon = lockBtn ? lockBtn.querySelector(".material-symbols-outlined") : null;
+
         const initialExposure = @((ViewBag.InitialExposure ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const initialContrast = @((ViewBag.InitialContrast ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
         const initialSaturation = @((ViewBag.InitialSaturation ?? 0).ToString(System.Globalization.CultureInfo.InvariantCulture));
-
         const savedCropData = @Html.Raw(string.IsNullOrEmpty(ViewBag.CropData as string) ? "null" : ViewBag.CropData);
-
-        const widthInput = document.querySelector(".width-input");
-        const heightInput = document.querySelector(".height-input");
 
         const exposure = 1 + (initialExposure / 100);
         const contrast = 1 + (initialContrast / 100);
@@ -47,7 +48,67 @@
         const filterString = `brightness(${exposure}) contrast(${contrast}) saturate(${saturation})`;
 
         let cropper;
+        let isUserTyping = false;
+        let debounceTimer;
+        let isLocked = lockBtn ? (lockBtn.dataset.locked === "true") : true;
+
+
+        function updateLockIcon() {
+            if(lockIcon) lockIcon.textContent = isLocked ? "lock" : "lock_open";
+            if(lockBtn) lockBtn.dataset.locked = isLocked;
+        }
+
+        function calculateAspectRatioFromInputs() {
+            const w = parseFloat(widthInput.value);
+            const h = parseFloat(heightInput.value);
+            if (w > 0 && h > 0) return w / h;
+            return NaN;
+        }
+
+        function applyUserValues() {
+            if (!cropper) return;
+
+            const w = parseFloat(widthInput.value);
+            const h = parseFloat(heightInput.value);
+
+            if (!isNaN(w) && !isNaN(h) && w > 0 && h > 0) {
+                const newRatio = w / h;
+                cropper.setAspectRatio(newRatio);
+                cropper.setData({ width: w, height: h });
+                console.log(`Applied Ratio: ${newRatio}, Size: ${w}x${h}`);
+            }
+        }
+
+
+        let startWidth, startHeight, startRatio;
+
+        function initializeValues() {
+            if (savedCropData) {
+                startWidth = savedCropData.width;
+                startHeight = savedCropData.height;
+            } else {
+                startWidth = image.naturalWidth;
+                startHeight = image.naturalHeight;
+            }
+
+            if (widthInput) widthInput.value = Math.round(startWidth);
+            if (heightInput) heightInput.value = Math.round(startHeight);
+
+            startRatio = startWidth / startHeight;
+            return startRatio;
+        }
+
+
         if (image) {
+            if (image.complete) {
+               startRatio = initializeValues();
+            } else {
+               image.addEventListener('load', () => {
+                   startRatio = initializeValues();
+                   if(cropper) cropper.setAspectRatio(startRatio);
+               });
+            }
+
             cropper = new Cropper(image, {
                 viewMode: 1,
                 autoCropArea: 1,
@@ -58,18 +119,76 @@
                     if(cropperView) cropperView.style.filter = filterString;
 
                     if (savedCropData) {
+                        this.cropper.setAspectRatio(savedCropData.width / savedCropData.height);
+
                         this.cropper.setData(savedCropData);
+                    }
+                    else if (startRatio) {
+                         this.cropper.setAspectRatio(startRatio);
                     }
                 },
                 crop(event) {
-                    if(widthInput) widthInput.value = Math.round(event.detail.width);
-                    if(heightInput) heightInput.value = Math.round(event.detail.height);
+                    if (!isUserTyping) {
+                        if(widthInput) widthInput.value = Math.round(event.detail.width);
+                        if(heightInput) heightInput.value = Math.round(event.detail.height);
+                    }
 
                     clearTimeout(window.saveTimer);
                     window.saveTimer = setTimeout(saveCrop, 1000);
                 }
             });
         }
+
+
+        function handleInput(e) {
+            isUserTyping = true;
+            clearTimeout(debounceTimer);
+
+            if (isLocked && cropper) {
+                const isWidth = e.target === widthInput;
+                const val = parseFloat(e.target.value);
+                const currentContainerData = cropper.getData();
+                const currentRatio = currentContainerData.width / currentContainerData.height;
+
+                if (!isNaN(val) && val > 0) {
+                   if (isWidth) {
+                       heightInput.value = Math.round(val / currentRatio);
+                   } else {
+                       widthInput.value = Math.round(val * currentRatio);
+                   }
+                }
+            }
+
+            debounceTimer = setTimeout(() => {
+                applyUserValues();
+                isUserTyping = false;
+            }, 1000);
+        }
+
+        if (widthInput && heightInput) {
+            widthInput.addEventListener('input', handleInput);
+            heightInput.addEventListener('input', handleInput);
+            widthInput.addEventListener('blur', () => { if(!debounceTimer) isUserTyping = false; });
+            heightInput.addEventListener('blur', () => { if(!debounceTimer) isUserTyping = false; });
+        }
+
+        if (lockBtn) {
+            updateLockIcon();
+            lockBtn.addEventListener('click', function() {
+                isLocked = !isLocked;
+                updateLockIcon();
+
+                if (cropper) {
+                    if (isLocked) {
+                        const ratio = calculateAspectRatioFromInputs();
+                        if(ratio) cropper.setAspectRatio(ratio);
+                    } else {
+                        cropper.setAspectRatio(NaN);
+                    }
+                }
+            });
+        }
+
 
         function saveCrop() {
             if (!cropper) return;
@@ -82,7 +201,7 @@
                 Exposure: initialExposure,
                 Contrast: initialContrast,
                 Saturation: initialSaturation,
-                CropData: JSON.stringify(cropData) 
+                CropData: JSON.stringify(cropData)
             };
 
             fetch('@Url.Action("SaveEdits", "FullEditor")', {
@@ -102,7 +221,7 @@
 
             exportLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                saveCrop(); 
+                saveCrop();
                 setTimeout(() => { window.location.href = this.href; }, 200);
             });
 
