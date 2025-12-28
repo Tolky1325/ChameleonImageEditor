@@ -3,14 +3,12 @@ using System.Collections.Generic;
 
 namespace ChameleonPhotoredactor.Models.Entities
 {
-    //no encapsulation for timebeing
     public class Image
     {
         public int ImageId { get; set; } 
         public string ImageName { get; set; }
         public byte[] ImageData { get; set; }
         public string ImageType { get; set; } 
-        //^^png most likely will be only one but for future proofing
         public string? ImageExifData { get; set; } 
         public DateTime ImageUploadDate { get; set; }
 

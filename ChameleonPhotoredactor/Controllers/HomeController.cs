@@ -23,13 +23,11 @@ namespace ChameleonPhotoredactor.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            //var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Library", "Library");
+            }
 
-            //if ()
-            //{
-            //
-            //}
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return View();
         }
 

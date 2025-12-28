@@ -2,7 +2,6 @@
 
 namespace ChameleonPhotoredactor.Models.Entities
 {
-    //no encapsulation for timebeing
     public class ImageEdit
     {
         public int ImageEditId { get; set; }
@@ -10,7 +9,6 @@ namespace ChameleonPhotoredactor.Models.Entities
         public float ContrastChange { get; set; }
         public float SaturationChange { get; set; }
         public string? CropData { get; set; }
-        //^^idk how to store it, probably JSON
         public DateTime LastEditDate { get; set; }
         public int TimeSpent { get; set; }
 

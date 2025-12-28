@@ -1,6 +1,5 @@
 ﻿namespace ChameleonPhotoredactor.Models.Entities
 {
-    //no encapsulation for timebeing
     public class User
     {
         public int userId { get; set; }

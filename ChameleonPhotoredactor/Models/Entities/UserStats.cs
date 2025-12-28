@@ -2,7 +2,6 @@
 
 namespace ChameleonPhotoredactor.Models.Entities
 {
-    //no encapsulation for timebeing
     public class UserStats
     {
         [Key]
