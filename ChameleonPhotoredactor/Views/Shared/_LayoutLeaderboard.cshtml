@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,7 +27,7 @@
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">art_track</span>
                 </div>
-                Library
+                @Localizer["Library"]
             </a>
 
             <a asp-controller="Leaderboard" asp-action="Leaderboard"
@@ -33,7 +36,7 @@
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">Leaderboard</span>
                 </div>
-                Top
+                @Localizer["Top"]
             </a>
 
             <a asp-controller="Account" asp-action="Profile"
@@ -42,10 +45,8 @@
                 <div class="icon-container">
                     <span class="material-symbols-outlined">account_circle</span>
                 </div>
-                Profile
-            </a>
-
-
+                @Localizer["Profile"]
+]            </a>
         </nav>
 
         <main class="guest-main">

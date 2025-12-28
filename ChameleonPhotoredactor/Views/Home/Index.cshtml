@@ -1,5 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Home Page"];
     Layout = "~/Views/Shared/_LayoutGuest.cshtml";
 }
 <div class="content-container">
@@ -15,8 +18,8 @@
 
     <div class="guest-content">
         <div class="content-title-container">
-            <h1>Transform Your Photos</h1>
-            <h2>Like a Chameleon</h2>
+            <h1>@Localizer["Transform Your Photos"]</h1>
+            <h2>@Localizer["Like a Chameleon"]</h2>
         </div>
 
         <div class="button-import-container">
@@ -31,7 +34,7 @@
                     <span class="material-symbols-outlined icon_upload" style="font-size: 30px">
                         upload
                     </span>
-                    <span class="text-import_a">Import</span>
+                    <span class="text-import_a">@Localizer["Import"]</span>
                 </button>
             </form>
 

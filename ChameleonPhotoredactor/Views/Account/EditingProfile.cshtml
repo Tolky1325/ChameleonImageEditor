@@ -1,7 +1,10 @@
-﻿@model ChameleonPhotoredactor.Models.Entities.User
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model ChameleonPhotoredactor.Models.Entities.User
 
 @{
-    ViewData["Title"] = "Profile Page";
+    ViewData["Title"] = Localizer["Profile Page"];
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
 
@@ -12,7 +15,7 @@
 
     <div class="bottom_profile">
         <div class="bottom_info-container">
-            <h4>Manage your account settings and view your statistics</h4>
+            <h4>@Localizer["Manage your account settings and view your statistics"]</h4>
         </div>
 
         <div class="button-import-container">
@@ -20,7 +23,7 @@
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
                 <button class="profile_button-sign_out" type="submit" id="uploadBtn">
-                    <span class="text-import_a">Sign Out</span>
+                    <span class="text-import_a">@Localizer["Sign Out"]</span>
                     <span class="material-symbols-outlined icon_upload">logout</span>
                 </button>
             </form>

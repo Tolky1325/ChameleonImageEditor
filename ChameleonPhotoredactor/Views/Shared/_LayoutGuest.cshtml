@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.NativeName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,7 +40,7 @@
                 <div class="logo-container">
                     <img class="logo-img" src="/images/logo.png" alt="Chameleon" width="50" />
                 </div>
-                Home
+                @Localizer["Home"]
             </a>
 
             <a asp-controller="Account" asp-action="Login"
@@ -32,8 +48,18 @@
                 <div class="login-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">login</span>
                 </div>
-                Sign in
+                @Localizer["Sign in"]
             </a>
+
+            <div style="float:right; margin: 10px;">
+                <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
+                      method="post" class="form-horizontal">
+                    <select name="culture" onchange="this.form.submit();"
+                            asp-for="@requestCulture.RequestCulture.UICulture.Name"
+                            asp-items="cultureItems">
+                    </select>
+                </form>
+            </div>
         </nav>
 
         <main class="guest-main">
@@ -43,7 +69,7 @@
     </div>
 
     <footer>
-        <p>&copy; Chameleon 2025 - Your Photo Editor</p>
+        <p>&copy; Chameleon 2025 - @Localizer["Your Photo Editor"]</p>
     </footer>
 </body>
 </html>

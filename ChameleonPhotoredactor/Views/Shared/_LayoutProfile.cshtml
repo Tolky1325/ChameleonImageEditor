@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.NativeName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,32 +33,31 @@
         <nav class="guest-nav">
 
             <a asp-controller="Library" asp-action="Library"
-                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Library" &&
-                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Library" ? "active" : "")">
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Library" &&
+                                                   ViewContext.RouteData.Values["action"]?.ToString() == "Library" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">art_track</span>
                 </div>
-                Library
+                @Localizer["Library"]
             </a>
 
             <a asp-controller="Leaderboard" asp-action="Leaderboard"
-                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Leaderboard" &&
-                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Leaderboard" ? "active" : "")">
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Leaderboard" &&
+                                                   ViewContext.RouteData.Values["action"]?.ToString() == "Leaderboard" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined" style="font-size: 24px;">Leaderboard</span>
                 </div>
-                Top
+                @Localizer["Top"]
             </a>
 
             <a asp-controller="Account" asp-action="Profile"
-                class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" &&
-                                                    ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")">
+               class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Profile" &&
+                                                   ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")">
                 <div class="icon-container">
                     <span class="material-symbols-outlined">account_circle</span>
                 </div>
-                Profile
+                @Localizer["Profile"]
             </a>
-
         </nav>
 
         <main class="guest-main">

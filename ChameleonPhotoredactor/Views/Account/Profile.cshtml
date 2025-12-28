@@ -1,7 +1,10 @@
-﻿@model ChameleonPhotoredactor.Models.Entities.User
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model ChameleonPhotoredactor.Models.Entities.User
 
 @{
-    ViewData["Title"] = "Profile Page";
+    ViewData["Title"] = Localizer["Profile Page"];
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
 
@@ -12,7 +15,7 @@
 
     <div class="bottom_profile">
         <div class="bottom_info-container">
-            <h4>Manage your account settings and view your statistics</h4>
+            <h4>@Localizer["Manage your account settings and view your statistics"]</h4>
         </div>
 
         <div class="button-import-container">
@@ -20,7 +23,7 @@
                 <input type="file" id="fileInput" name="file" style="display:none;" accept="image/*" />
 
                 <button class="profile_button-sign_out" type="submit" id="uploadBtn">
-                    <span class="text-import_a">Sign Out</span>
+                    <span class="text-import_a">@Localizer["Sign Out"]</span>
                     <span class="material-symbols-outlined icon_upload">logout</span>
                 </button>
             </form>
@@ -51,67 +54,67 @@
 
 
                 <div class="profile_container username-info_container">
-                    <div class="label">Username</div>
+                    <div class="label">@Localizer["Username"]</div>
                     <div class="user_info">@Model.userName</div>
                 </div>
             </div>
 
             <div class="profile_container displae-name-info_container">
-                <div class="label">Display Name</div>
+                <div class="label">@Localizer["Display Name"]</div>
                 <div class="user_info user_info-view" id="displayNameView">@Model.userDisplayName</div>
                 <input type="text" class="user_info user_info-edit" id="displayNameEdit" value="@Model.userDisplayName" style="display:none;" />
             </div>
 
             <div class="profile_container email-info_container">
-                <div class="label">Email</div>
+                <div class="label">@Localizer["Email"]</div>
                 <div class="user_info user_info-view" id="emailView">@Model.userEmail</div>
                 <input type="email" class="user_info user_info-edit" id="emailEdit" value="@Model.userEmail" style="display:none;" />
             </div>
 
             <div class="profile_container member-since-info_container">
-                <div class="label">Member since</div>
+                <div class="label">@Localizer["Member since"]</div>
                 <div class="user_info">@Model.userCreationDate.ToString("d")</div>
             </div>
 
             <div class="btn_edit-profile_container">
                 <a class="btn_edit-profile" id="editProfileBtn">
-                    Edit Profile
+                    @Localizer["Edit Profile"]
                     <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">edit</span>
                 </a>
                 <a class="btn_edit-profile" id="saveProfileBtn" style="display:none; margin-right: 10px;">
-                    Save Changes
+                    @Localizer["Save Changes"]
                     <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">save</span>
                 </a>
                 <a class="btn_edit-profile" id="cancelEditBtn" style="display:none;">
-                    Cancel
+                    @Localizer["Cancel"]
                     <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">close</span>
                 </a>
             </div>
         </div>
 
         <div class="metrics-info_container">
-            <h3>Your Statistics</h3>
+            <h3>@Localizer["Your Statistics"]</h3>
 
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">upload</span>
-                <div class="metric_label">Imported</div>
+                <div class="metric_label">@Localizer["Imported"]</div>
                 <div class="metric_value">@(Model.UserStats?.importCount ?? 0)</div>
             </div>
 
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload discover_tune-rotate" style="font-size: 24px;">discover_tune</span>
-                <div class="metric_label">Edited</div>
+                <div class="metric_label">@Localizer["Edited"]</div>
                 <div class="metric_value">@(Model.UserStats?.editCount ?? 0)</div>
             </div>
 
             <div class="metric_block">
                 <span class="material-symbols-outlined icon_upload" style="font-size: 24px;">download</span>
-                <div class="metric_label">Exported</div>
+                <div class="metric_label">@Localizer["Exported"]</div>
                 <div class="metric_value">@(Model.UserStats?.exportCount ?? 0)</div>
             </div>
 
             <a class="delete_account_block" id="deleteAccount" href="javascript:void(0);" onclick="confirmDelete()">
-                <div class="delete_account_label">Delete Account</div>
+                <div class="delete_account_label">@Localizer["Delete Account"]</div>
                 <span class="material-symbols-outlined icon_delete_account" style="font-size: 24px;">delete</span>
             </a>
 
